@@ -81,7 +81,11 @@
 
                                                             <h5 style="color: #0DC2C9; margin-left: 25px"><i class="fa fa-bookmark" aria-hidden="true"></i>
 
-                                                             
+                                                                @foreach($countCategory as $countCategories)
+                                                                    @if($countCategories->id == $jobs->category_id)
+                                                                        {{ $countCategories->name }}
+                                                                    @endif
+                                                                @endforeach
 
                                                             </h5>
 
@@ -89,7 +93,11 @@
                                                         <div class="col-md-3 col-sm-12">
                                                             {{--<h5 style="color: #0DC2C9; margin-left: 25px"><i class="fa fa-bookmark" aria-hidden="true"></i>--}}
 
-                                                                
+                                                                {{--@foreach($countCategory as $countCategories)--}}
+                                                                    {{--@if($countCategories->id == $jobs->category_id)--}}
+                                                                        {{--{{ $countCategories->name }}--}}
+                                                                    {{--@endif--}}
+                                                                {{--@endforeach--}}
 
                                                             {{--</h5>--}}
                                                         </div>
@@ -124,5 +132,3 @@
         </div>
     </div>
 @endsection
-
-

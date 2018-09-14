@@ -1,3 +1,19 @@
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-filestyle.min.js"> </script>
+
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>
+    tinymce.init({ selector:'textarea',
+        plugins: "link",
+        menu: 'disable',
+        plugins: "lists",
+        toolbar: "numlist bullist",
+        //plugin:"advlist",
+        browser_spellcheck: true,
+    });
+</script>
+
+
 @extends('admin.admin-layout.main')
 @section('content')
     
@@ -13,7 +29,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form action="{{ route('createjob.update', ['id'=>$job->id,'company_id'=>$company->id]) }}" method="post">
+                        <form action="{{ route('employer.createjob.update', ['id'=>$job->id,'company_id'=>$company->id]) }}" method="post">
                             {{csrf_field()}}
 
                             <div class="col-md-1"></div>
@@ -21,9 +37,9 @@
                                 <div class="wizard">
                                     <div class="tab-content">
                                         <div class="tab-pane active" role="tabpanel" id="step1" style="margin-top: -25px">
-                                            @include('admin.job.components.edit-job-description')
-                                            @include('admin.job.components.edit-job-detail')
-                                            @include('admin.job.components.edit-job-preferred-candidate')
+                                            @include('employer.job.components.edit-job-description')
+                                            @include('employer.job.components.edit-job-detail')
+                                            @include('employer.job.components.edit-job-preferred-candidate')
                                             <hr>
                                             <ul class="list-inline pull-right" style="margin-bottom: 3em">
                                                 <li><button type="submit" class="btn btn-primary next-step">update now</button></li>

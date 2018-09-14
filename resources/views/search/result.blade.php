@@ -11,7 +11,7 @@
 
             {{--Listing job in the right side--}}
 
-            <div class="col-md-8 col-sm-12">
+            <div class="col-md-9 col-sm-12">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="font-size: 18px; ;color: #1b6d85 ">Search Result</div>
                     <div class="panel-body">

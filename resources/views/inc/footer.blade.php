@@ -5,7 +5,7 @@
         <hr class="style-one" width="100%" style="height: 1px">
         <div class="row" style="margin-top: -2px">
             {{----}}
-            <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="col-lg-4 col-md-4 col-sm-12">
 
                 <div class="footer-list">
                     <h4>ABOUT US</h4>
@@ -37,7 +37,13 @@
                         <li style="list-style: none" ><a href="#"><i class="fa fa-phone-square"></i>  (+855) 70 900 928 </a></li>
                         <li style="list-style: none" ><a href="#"><i class="fa fa-envelope"></i> job@paysjob.com</a></li>
                         <li style="list-style: none" ><a href="#"><i class="fa fa-globe"></i> www.paysjob.com</a></li>
-                        <li style="list-style: none" ><a href="#"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> more...</a></li>
+                        <li style="list-style: none" ><a href="#"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Visitors: 
+                        
+                       <img src="https://www.reliablecounter.com/count.php?page=paysjob.com6045665&digit=style/black-and-white/7/&reloads=0" alt="" title="" border="0"></a><br /><a href="http://www.jfoguenne.be/tondeuse-robot-honda" target="_blank" style="font-family: Geneva, Arial; font-size: 9px; color: #330010; text-decoration: none;">
+                        
+                     
+                        
+                        </a></li>
                     </ul>
                 </div>
 
@@ -55,22 +61,9 @@
 
             </div>
 
-            {{--search button--}}
-            {{--<div class=" col-lg-3 col-md-3 col-sm-12">--}}
+            
 
-                {{--<div class="footer-list">--}}
-                    {{--<h4>ABOUT US</h4>--}}
-                {{--</div>--}}
-                {{--<div class="footer-list-link">--}}
-                    {{--<ul class="item-list">--}}
-                        {{--<li style="list-style: none" ><a href="#"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> About us</a></li>--}}
-                        {{--<li style="list-style: none" ><a href="#"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Contact us</a></li>--}}
-                        {{--<li style="list-style: none" ><a href="#"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Our blog</a></li>--}}
-                        {{--<li style="list-style: none" ><a href="#"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Our Training</a></li>--}}
-                    {{--</ul>--}}
-                {{--</div>--}}
-
-            {{--</div>--}}
+            
 
             {{--search button--}}
             <div class=" col-lg-4 col-md-4 col-sm-12 ">
@@ -79,7 +72,7 @@
                 </div>
                 <div class="footer-list-link">
                     <ul class="item-list">
-                        <li style="list-style: none" ><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+                        <li style="list-style: none" ><a href="https://www.facebook.com/PaysJobKH/" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
                         <li style="list-style: none" ><a href="#">
                                 <i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
                         <li style="list-style: none" ><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i> Linkedin</a></li>

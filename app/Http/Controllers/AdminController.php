@@ -94,13 +94,12 @@ class AdminController extends Controller
     //update admin profile method
     public function updateAdminProfile(Request $request, $id)
     {
-       // return 12345;
         $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|max:255',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
             'address' => 'required',
             'phone' => 'required',
-
+            'avatar'=>'required'
         ]);
 
         $adminProfile = Admin::find($id);
@@ -153,7 +152,8 @@ class AdminController extends Controller
         Session::flash('success', 'You have deleted user from the list');
         return redirect()->back();
     }
-    //update password form
+
+//update password form
     public function formUpdatePassword(){
         return view('admin.admin-user.changeUserAdminPassword');
     }
@@ -166,6 +166,7 @@ class AdminController extends Controller
 
         $admin = Admin::findOrFail(Auth::user()->id);
 
+
         if (Hash::check(Input::get('oldPassword'), $admin['password']) && Input::get('password') == Input::get('password_confirmation')) {
             $admin->password = bcrypt(Input::get('password'));
             $admin->save();
@@ -177,6 +178,8 @@ class AdminController extends Controller
             return redirect()->back();
         }
     }
+
+
 
 
 }

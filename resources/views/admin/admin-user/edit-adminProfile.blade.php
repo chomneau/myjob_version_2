@@ -1,4 +1,16 @@
 
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>
+        tinymce.init({ selector:'textarea',
+          //  plugins: "link",
+            menu: 'disable',
+            plugins: "lists",
+            toolbar: "numlist bullist",
+            //plugin:"advlist",
+            browser_spellcheck: true,
+        });
+    </script>
+
 
 @extends('admin.admin-layout.main')
 @section('content')
@@ -47,7 +59,7 @@
 
                         <div class="col-md-12 {{ $errors->has('phone') ? ' has-error' : '' }}" style="margin-bottom: 20px">
                             <label for="exampleInputEmail1">Phone</label>
-                            <input type="number" name="phone" class="form-control" value="{{ $adminProfile->AdminProfile->phone }}" required autofocus placeholder="Phone">
+                            <input type="number" name="phone" class="form-control" value="{{ $adminProfile->adminprofile->phone }}" required autofocus placeholder="Phone">
                             @if ($errors->has('phone'))
                                 <span class="help-block">
                                 <strong>{{ $errors->first('phone') }}</strong>

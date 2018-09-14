@@ -1,6 +1,4 @@
-@extends('admin.admin-layout.main')
-@section('content')
-    
+
 <div class="right_col" role="main">
     <div class="clearfix"></div>
 
@@ -41,4 +39,3 @@
     </div>
 </div>
 
-@endsection

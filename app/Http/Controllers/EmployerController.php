@@ -88,7 +88,7 @@ class EmployerController extends Controller
             ->with([
                 'company'=>$company,
                 'note'=>$company->note,
-                'jobPost'=>auth()->user()->company->job,
+                'jobPost'=>$company->job,
             ]);
         //  return view('admin.company.company-profile')->with('company', $company);
     }

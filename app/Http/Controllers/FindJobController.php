@@ -90,14 +90,12 @@ class FindJobController extends Controller
         $job = Job::with('company')->orderBy('created_at', 'Desc')->paginate(11);
         $location = Location::withCount('job')->take(7)->get();
         $category = Category::withCount('job')->take(7)->get();
-        $countCategory = Category::all();
         $industryType = IndustryType::withCount('company')->take(7)->get();
         return view('pages.findjob')->with([
             'job'=>$job,
             'locationCount'=> $location,
             'countCategory'=>$category,
             'countIndustry'=>$industryType,
-            'countCategory'=>$countCategory
         ]);
     }
 //Search job

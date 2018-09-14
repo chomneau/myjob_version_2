@@ -1,14 +1,14 @@
-{{--<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>--}}
-{{--<script>--}}
-    {{--tinymce.init({ selector:'textarea',--}}
-        {{--plugins: "link",--}}
-        {{--menu: 'disable',--}}
-        {{--plugins: "lists",--}}
-        {{--toolbar: "numlist bullist",--}}
-        {{--//plugin:"advlist",--}}
-        {{--browser_spellcheck: true,--}}
-    {{--});--}}
-{{--</script>--}}
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>
+    tinymce.init({ selector:'textarea',
+        plugins: "link",
+        menu: 'disable',
+        plugins: "lists",
+        toolbar: "numlist bullist",
+        //plugin:"advlist",
+        browser_spellcheck: true,
+    });
+</script>
 
 
 

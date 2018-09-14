@@ -28,7 +28,7 @@
                             {{--start col-container--}}
                             <div class="col-md-10 " style="margin-top: 2em">
                                 <div class="col-md-3">
-                                    <img src="{{ asset($adminProfile->AdminProfile->avatar) }}" alt="user profile" width="150" height="150">
+                                    <img src="{{ asset($adminProfile->Adminprofile->avatar) }}" alt="user profile" width="150" height="150">
 
                                 </div>
 
@@ -78,6 +78,7 @@
                                                                     </span>
 
                                                                     @endif
+
 
                                                             </a>
                                                         </li>
@@ -130,7 +131,7 @@
 
                         <div class="x_content">
                             <blockquote class="message" id="body" style="margin-right: 2em">
-                                {!!  $adminProfile->adminprofile->about !!}
+                                {!!  $adminProfile->Adminprofile->about !!}
                                 
                             </blockquote>
                         </div>

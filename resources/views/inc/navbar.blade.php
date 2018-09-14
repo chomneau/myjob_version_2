@@ -3,11 +3,9 @@
         <div class="navbar navbar-default navbar-fixed-top ">
             <div class="container">
                 <div class="navbar-header">
-                    <a href="/" class="navbar-brand" style="padding-top:0px">
-                        
-                        <img src="{{ asset('/images/logo.png') }}" alt="" style="margin-bottom:10px">
-                        
-                        </a>
+                    <a href="/" class="navbar-brand" style="font-size: 2em; font-family: 'Abel', sans-serif;; color: #ede3e3">
+                        <i class="fa fa-briefcase" aria-hidden="true"></i>
+                        paysjob.com</a>
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -27,7 +25,7 @@
 
 
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Training <span class="caret"></span></a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Services <span class="caret"></span></a>
                                 <ul class="dropdown-menu" aria-labelledby="download">
                                     <li><a href="#">Training Resources</a></li>
                                     <li class="divider"></li>
@@ -63,9 +61,9 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         @if (Auth::guest())
-                            <li><a href="{{ route('employer.login') }}"> For Employer </a></li>
+                            <li><a href="{{ route('employer.login') }}"> Employer - Post Job </a></li>
                             <li><a href="{{ route('login') }}"><i class="fa fa-lock" aria-hidden="true"></i> Login</a></li>
-                            <li><a href="{{ route('register') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a></li>
+                            <li><a href="{{ route('register') }}"><i class="fa fa-address-card-o" aria-hidden="true"></i> Post CV</a></li>
 
                         @elseif(Auth::guard('admin')->check())
 

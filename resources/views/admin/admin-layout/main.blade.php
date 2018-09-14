@@ -10,7 +10,7 @@
     {{--Toastr notification--}}
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
 
-    <title>Admin Panel </title>
+    <title>Admin | Job </title>
     @include('admin.style.cs-admin')
 
 

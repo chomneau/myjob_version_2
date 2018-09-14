@@ -30,15 +30,15 @@
                                     </h5>
 
                                     <div class="col-md-12 text-center">
-                                        <a href="" style="font-size: 25px; color: #0e90d2; margin-left: 10px">
-                                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                                        </a>
-                                        <a href="" style="font-size: 25px; color: #0e90d2; margin-left: 10px">
-                                            <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                                        </a>
-                                        <a href="" style="font-size: 25px; color: #0e90d2; margin-left: 10px">
-                                            <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                                        </a>
+                                        
+                                        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                                        <div class="addthis_inline_share_toolbox"></div>
+                                        
+                                        <div class="addthis_toolbox addthis_default_style" addthis:url="THE URL" addthis:title="THE TITLE" addthis:description="THE DESCRIPTION" addthis:media="THE IMAGE"></div>
+                                        
+                                       <div class="fb-share-button" data-href="http://paysjob.com" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fpaysjob.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                                        
+            
                                     </div>
 
                                     {{--Location--}}

@@ -31,7 +31,6 @@ Route::post('/employer/login', 'Auth\EmployerLoginController@employerLogin')->na
 Route::get('/employer/register', 'Auth\EmployerRegisterController@showEmployerRegisterForm')->name('employer.register');
 Route::post('/employer/register', 'Auth\EmployerRegisterController@employerRegister')->name('employer.register.submit');
 Route::get('/employer/{id}', 'EmployerController@index')->name('employer.profile');
-
 Route::get('/employer', 'EmployerController@index')->name('employer.dashboard');
 
 Route::get('/employer/viewAllJobs', 'EmployerController@employeeAllJobs')->name('employer.viewAllJobs');
@@ -54,9 +53,6 @@ Route::post('/form', 'PagesController@store');
 
 Auth::routes();
 Route::get('/about', 'PagesController@getAbout');
-Route::get('/about/setting', 'PagesController@aboutSetting')->name('about.setting');
-Route::post('/about/setting', 'PagesController@aboutPageSetting')->name('about.pageSetting');
-
 Route::get('/contact', 'PagesController@getContact');
 
 Route::get('/postjob', 'PagesController@getPostjob');

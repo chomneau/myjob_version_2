@@ -24,7 +24,7 @@ class Admin extends Authenticatable
 
     //relationship with Admin-profile
     public function Adminprofile(){
-        return $this->hasOne(Adminprofile::class);
+        return $this->hasOne('App\Adminprofile');
     }
 
 
