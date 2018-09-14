@@ -3,9 +3,10 @@
         <div class="navbar navbar-default navbar-fixed-top ">
             <div class="container">
                 <div class="navbar-header">
-                    <a href="/" class="navbar-brand" style="font-size: 2em; font-family: 'Abel', sans-serif;; color: #ede3e3">
-                        <i class="fa fa-briefcase" aria-hidden="true"></i>
-                        paysjob.com</a>
+                    <a href="/" class="navbar-brand" style="padding-top:0px; font-family: 'Abel', sans-serif;; color: #ede3e3">
+                        <img src="{{ asset('/images/logo.png')}}" alt="">
+                        
+                        </a>
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
