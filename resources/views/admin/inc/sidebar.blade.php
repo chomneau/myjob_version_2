@@ -144,7 +144,7 @@
 
             <div class="profile clearfix">
                 <div class="profile_pic">
-                    <img src="{{ asset($company->logo) }}" alt="..." class="img-circle profile_img" >
+                    <img src="{{ asset(auth()->user()->company->logo) }}" alt="..." class="img-circle profile_img" >
                 </div>
                 <div class="profile_info">
                     <span>Welcome,</span>

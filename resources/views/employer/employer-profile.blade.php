@@ -49,17 +49,18 @@
                                 <div class="profile_img">
                                     <div id="crop-avatar">
                                         <!-- Current avatar -->
-                                        <img class="img-responsive avatar-view" src="{{ asset($company->logo) }}" width="170" height="170" alt="Avatar" title="Change the avatar">
+                                        <img class="img-responsive avatar-view" src="{{ asset(Auth::user()->company->logo) }}" width="170" height="170" alt="Avatar" title="Change the avatar">
                                     </div>
                                 </div>
-                                <h2>{{ $company->companyName }}</h2>
+                                <h2>{{ Auth::user()->company->companyName }}</h2>
+                                
 
                                 <ul class="list-unstyled user_data">
                                     <li>
                                         <h5>
                                             <i class="fa fa-map-marker user-profile-icon"></i>
                                             @foreach($location as $locations)
-                                                @if($locations->id == $company->location_id)
+                                                @if($locations->id == Auth::user()->company->location_id)
                                                     {{ $locations->name }}
                                                 @endif
                                             @endforeach
@@ -70,7 +71,7 @@
                                     <li>
                                         <i class="fa fa-briefcase user-profile-icon"></i>
                                         @foreach($companyType as $companyTypes)
-                                            @if($companyTypes->id == $company->companyType_id)
+                                            @if($companyTypes->id == Auth::user()->company->companyType_id)
                                                 {{ $companyTypes->name }}
                                             @endif
                                         @endforeach
@@ -78,7 +79,7 @@
 
                                     <li class="m-top-xs">
                                         <i class="fa fa-external-link user-profile-icon"></i>
-                                        <a href="{{ $company->website }}" target="_blank">{{ $company->website }}</a>
+                                        <a href="{{ $company->website }}" target="_blank">{{ Auth::user()->company->website }}</a>
                                     </li>
                                 </ul>
 
@@ -88,17 +89,17 @@
                                 <h4>Company Info</h4>
                                 <ul class="list-unstyled user_data">
                                     <li>
-                                        <strong>Contact Person :</strong> {{ $company->contactPerson }}
+                                        <strong>Contact Person :</strong> {{ Auth::user()->company->contactPerson }}
                                     </li>
                                     <li>
-                                        <strong>Phone :</strong>(+855) {{ $company->phone }}
+                                        <strong>Phone :</strong>(+855) {{ Auth::user()->company->phone }}
                                         {{--<p>Web Applications</p>--}}
                                         {{--<div class="progress progress_sm">--}}
                                         {{--<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>--}}
                                         {{--</div>--}}
                                     </li>
                                     <li>
-                                        <strong>Email :</strong> {{ $company->email }}
+                                        <strong>Email :</strong> {{ Auth::user()->company->email }}
                                         {{--<p>Website Design</p>--}}
                                         {{--<div class="progress progress_sm">--}}
                                         {{--<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>--}}
@@ -107,11 +108,11 @@
                                     <li>
                                         <strong>Industry Type : </strong>
                                         @foreach($industryType as $indus)
-                                            @if($indus->id == $company->industry_type_id)
+                                            @if($indus->id == Auth::user()->company->industry_type_id)
                                                 {{ $indus->name }}
                                             @endif
                                         @endforeach
-                                        {{--@if($industryType->id == $company->industryType_id)--}}
+                                        {{--@if($industryType->id == Auth::user()->company->industryType_id)--}}
                                         {{--12--}}
                                         {{--@endif--}}
                                         {{--<p>Automation & Testing</p>--}}
@@ -122,7 +123,7 @@
                                     <li>
                                         <strong>Employees :</strong>
                                         @foreach($employeeSize as $employee)
-                                            @if($employee->id == $company->employeeSize_id)
+                                            @if($employee->id == Auth::user()->company->employeeSize_id)
                                                 {{ $employee->name }}
                                             @endif
                                         @endforeach
@@ -136,7 +137,7 @@
                                 </ul>
                                 <!-- end of skills -->
 
-                                <a href="{{ route('employer.edit', ['id'=>$company->id]) }}" class="btn btn-success">
+                                <a href="{{ route('employer.edit', ['id'=>Auth::user()->company->id]) }}" class="btn btn-success">
                                     <i class="fa fa-edit m-right-xs"></i> Edit Profile</a>
                                 <br />
 
@@ -191,7 +192,7 @@
                                     <div id="myTabContent" class="tab-content">
 
                                         <div role="tabpanel" class="tab-pane fade active in" id="tab_content2" aria-labelledby="home-tab">
-                                            <a href="{{ route('employer.createjob.create', ['id'=>$company->id]) }}" class="btn btn-success" >
+                                            <a href="{{ route('employer.createjob.create', ['id'=>auth()->user()->company->id]) }}" class="btn btn-success" >
                                                 {{--data-toggle="modal" data-target="#post-smallModal"--}}
                                                 Post a new job
                                                 <i class="glyphicon glyphicon-plus-sign"></i>
@@ -219,7 +220,7 @@
                                                             <td class="vertical-align-mid">
                                                                 <a href="{{ route('singleJob',['id'=>$job->id, 'company_id'=>$job->company->id]) }}" target="_blank" class="btn btn-primary btn-xs">
                                                                     <i class="fa fa-folder"></i> View </a>
-                                                                <a href="{{ route('employer.createjob.edit', ['id'=>$job->id, 'company_id'=>$company->id]) }}" class="btn btn-warning btn-xs">
+                                                                <a href="{{ route('employer.createjob.edit', ['id'=>$job->id, 'company_id'=>auth()->user()->company->id]) }}" class="btn btn-warning btn-xs">
                                                                     <i class="fa fa-edit"></i> edit </a>
                                                                 {{--<a href="#" class="btn btn-danger btn-xs"><i class="fa fa-delete"></i> Delete </a>--}}
                                                             </td>
@@ -272,7 +273,7 @@
 
                                         </div>
                                         <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                                            <blockquote class="message">{!! $company->about !!} </blockquote>
+                                            <blockquote class="message">{!! auth()->user()->company->about !!} </blockquote>
                                         </div>
                                     </div>
                                 </div>

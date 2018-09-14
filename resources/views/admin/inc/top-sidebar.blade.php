@@ -47,7 +47,7 @@
                 @elseif(Auth::guard('employer')->check())
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="{{ asset($company->logo) }}" alt="admin">{{ Auth::user()->name }}
+                                <img src="{{ asset(auth()->user()->company->logo) }}" alt="admin">{{ Auth::user()->name }}
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">

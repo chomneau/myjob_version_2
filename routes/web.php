@@ -31,6 +31,7 @@ Route::post('/employer/login', 'Auth\EmployerLoginController@employerLogin')->na
 Route::get('/employer/register', 'Auth\EmployerRegisterController@showEmployerRegisterForm')->name('employer.register');
 Route::post('/employer/register', 'Auth\EmployerRegisterController@employerRegister')->name('employer.register.submit');
 Route::get('/employer/{id}', 'EmployerController@index')->name('employer.profile');
+
 Route::get('/employer', 'EmployerController@index')->name('employer.dashboard');
 
 Route::get('/employer/viewAllJobs', 'EmployerController@employeeAllJobs')->name('employer.viewAllJobs');
