@@ -103,6 +103,13 @@
                         </table>
                         <!-- end project list -->
 
+
+                        <div class="text-right">
+                            {!! $company->links() !!}
+                        </div>
+
+
+
                     </div>
                 </div>
             </div>

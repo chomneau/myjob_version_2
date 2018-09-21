@@ -67,8 +67,7 @@ class CompanyController extends Controller
     public function index()
     {
         $company = Company::with('industryType')->orderBy('created_at', 'desc')
-            ->take(10)
-            ->get();
+            ->paginate(15);
        return view('admin.company.view-all-company')->with('company', $company);
 //    $industry = IndustryType::with('company')->orderBy('created_at', 'desc')
 //            ->take(10)
