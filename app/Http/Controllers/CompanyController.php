@@ -235,8 +235,19 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+
+
+
+    //Search job
+    public function companySearch(){
+        $company = Company::where('companyName','like', '%'. request('query') .  '%')->paginate(10);
+
+        
+        return view('admin.company.search.company_search_result')->with('company', $company)
+            ->with('companyName', 'Search results :' .request('query'));
+          
     }
+
+
+
 }

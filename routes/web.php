@@ -231,6 +231,9 @@ Route::prefix('admin')->group(function (){
     Route::get('/updatePassword/{id}', 'AdminController@formUpdatePassword')->name('admin.updatepassword');
     Route::post('/updatePassword/{id}', 'AdminController@updatePassword');
 
+    //search company
+    Route::get('/search', 'CompanyController@companySearch')->name('company.search');
+
 //    // Password reset routes
 //    Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
 //    Route::get('/password/reset', 'Auth\AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');

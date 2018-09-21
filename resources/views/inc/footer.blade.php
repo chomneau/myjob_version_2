@@ -37,13 +37,7 @@
                         <li style="list-style: none" ><a href="#"><i class="fa fa-phone-square"></i>  (+855) 70 900 928 </a></li>
                         <li style="list-style: none" ><a href="#"><i class="fa fa-envelope"></i> job@paysjob.com</a></li>
                         <li style="list-style: none" ><a href="#"><i class="fa fa-globe"></i> www.paysjob.com</a></li>
-                        <li style="list-style: none" ><a href="#"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i> Visitors: 
                         
-                       <img src="https://www.reliablecounter.com/count.php?page=paysjob.com6045665&digit=style/black-and-white/7/&reloads=0" alt="" title="" border="0"></a><br /><a href="http://www.jfoguenne.be/tondeuse-robot-honda" target="_blank" style="font-family: Geneva, Arial; font-size: 9px; color: #330010; text-decoration: none;">
-                        
-                     
-                        
-                        </a></li>
                     </ul>
                 </div>
 

@@ -7,7 +7,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>All Companies / NGO</h3>
+                <h3>Search Result</h3>
             </div>
 
             <div class="title_right">
@@ -24,8 +24,6 @@
 
                 </div>
             </div>
-
-
         </div>
 
         <div class="clearfix"></div>
