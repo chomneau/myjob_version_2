@@ -35,8 +35,8 @@ class FindJobController extends Controller
 
 
 
-        $this->countCategory = Category::withCount('job')->take(7)->get();
-        View::share('countCategory', $this->countCategory);
+        // $this->countCategory = Category::withCount('job')->take(7)->get();
+        // View::share('countCategory', $this->countCategory);
 
         $this->industryType = IndustryType::withCount('company')->take(7)->get();
         View::share('industryType', $this->industryType);
