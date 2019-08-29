@@ -11,22 +11,27 @@
 
             {{--Listing job in the right side--}}
 
-            <div class="col-md-8 col-sm-12">
+            <div class="col-md-9 col-sm-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading text-center" style="font-size: 18px; ;color: #8d9193 ">Browse Jobs by industries</div>
+                    <div class="panel-heading text-center" style="font-size: 18px; ;color: #8d9193 ">Browse Jobs by company</div>
                     <div class="row" style="margin-top: 20px; margin-right: 20px; margin-left: 20px">
-                        @if(count($industryType))
-                            @foreach($industryType as $industryTypes)
-                                <div class="col-md-6"  style="padding-top: -50px">
-                                    <div class="bs-component">
+                        @if(count($company))
+                            @foreach($company as $companies)
+                                <div class="col-md-6"  style="padding-top: -30px">
+                                    <div class="bs-component" >
 
-                                        <ul class="list-group">
-                                            <a href="{{ route('jobByIndustry', ['id'=>$industryTypes->id]) }}">
+                                        <ul class="list-group" style="width:100%; height:70px">
+                                            <a href="{{ route('jobByIndustry', ['id'=>$companies->id]) }}">
                                                 <li class="list-group-item" style="font-size: 16px; padding-bottom: 15px; padding-top: 15px">
-                                                    {{ $industryTypes->name }}
-                                                    <span class="badge">
-                                                        {{ $industryTypes->company->count() }}
+                                                    <img src="{{ asset($companies->logo) }} " alt="" style=" max-width: 30px; max-height: 100% " >
+                                                    <span>
+                                                        {{ $companies->companyName }}
                                                     </span>
+                                                    
+                                                    {{-- <span class="badge">
+                                                        {{ $companies->job->count() }}
+                                                    </span> --}}
+                                                    
                                                 </li>
                                             </a>
                                         </ul>
@@ -36,6 +41,10 @@
 
                         @endif
 
+                        
+                    </div>
+                    <div class="text-right">
+                        {!! $company->links() !!}
                     </div>
                 </div>
             </div>

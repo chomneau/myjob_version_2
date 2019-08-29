@@ -86,54 +86,55 @@
 
                             <!-- start skills -->
                             <h4>Company Info</h4>
-                            <ul class="list-unstyled user_data">
-                                <li>
-                                    <strong>Contact Person :</strong> {{ $company->contactPerson }}
-                                </li>
-                                <li>
-                                    <strong>Phone :</strong>(+855) {{ $company->phone }}
-                                    {{--<p>Web Applications</p>--}}
-                                    {{--<div class="progress progress_sm">--}}
-                                        {{--<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>--}}
-                                    {{--</div>--}}
-                                </li>
-                                <li>
-                                    <strong>Email :</strong> {{ $company->email }}
-                                    {{--<p>Website Design</p>--}}
-                                    {{--<div class="progress progress_sm">--}}
-                                        {{--<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>--}}
-                                    {{--</div>--}}
-                                </li>
-                                <li>
-                                    <strong>Industry Type :</strong>
+                            <table border="0" style="margin-bottom:25px" >
+                                <tr height="30px">
+                                    <td style="padding-right:20px ">
+                                    <strong>Contact Person</strong></td>
+                                    <td >:</td>
+                                    <td width="5px"></td>
+                                    <td>{{ $company->contactPerson }}</td>
+                                </tr>
+                                <tr height="30px">
+                                    <td><strong>Phone</strong></td>
+                                    <td>:</td>
+                                    <td></td>
+                                    <td>(+855) {{ $company->phone }}</td>
+                                </tr>
+                                <tr height="30px">
+                                    <td><strong>Email</strong></td>
+                                    <td>:</td>
+                                    <td></td>
+                                    <td>{{ $company->email }}</td>
+                                </tr>
+                                <tr height="30px">
+                                    <td><strong>Industry Type</strong></td>
+                                    <td>:</td>
+                                    <td></td>
+                                    <td>                                    
                                     @foreach($industryType as $indus)
-                                        @if($indus->id == $company->industryType_id)
-                                              {{ $indus->name }}
+                                        @if($indus->id == $company->industry_type_id)
+                                            {{ $indus->name }}
                                         @endif
                                     @endforeach
-                                    {{--@if($industryType->id == $company->industryType_id)--}}
-                                        {{--12--}}
-                                    {{--@endif--}}
-                                    {{--<p>Automation & Testing</p>--}}
-                                    {{--<div class="progress progress_sm">--}}
-                                        {{--<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>--}}
-                                    {{--</div>--}}
-                                </li>
-                                <li>
-                                    <strong>Employees :</strong>
-                                    @foreach($employeeSize as $employee)
-                                        @if($employee->id == $company->employeeSize_id)
-                                            {{ $employee->name }}
-                                        @endif
-                                    @endforeach
-
-                                    {{--<p>UI / UX</p>--}}
-                                    {{--<div class="progress progress_sm">--}}
-                                        {{--<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>--}}
-                                    {{--</div>--}}
-                                </li>
-
-                            </ul>
+                                        
+                                    </td>
+                                </tr>
+                                <tr height="30px">
+                                    <td><strong>Employees</strong></td>
+                                    <td>:</td>
+                                    <td></td>
+                                    <td>
+                                        @foreach($employeeSize as $employee)
+                                            @if($employee->id == $company->employeeSize_id)
+                                                {{ $employee->name }}
+                                            @endif
+                                        @endforeach
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                                
+                            
                             <!-- end of skills -->
 
                             <a href="{{ route('company.edit', ['id'=>$company->id]) }}" class="btn btn-success">
@@ -159,11 +160,11 @@
                                     </li>
                                     <li>
                                         <span class="name"> Active job posting </span>
-                                        <span class="value text-success"> 2000 </span>
+                                        <span class="value text-success"> {{$activeJob}} </span>
                                     </li>
                                     <li class="hidden-phone">
-                                        <span class="name"> Total Views </span>
-                                        <span class="value text-success"> 20 </span>
+                                        <span class="name"> Expired Job posting </span>
+                                        <span class="value text-success"> {{$expiredJob}} </span>
                                     </li>
                                 </ul>
                                 <br />
@@ -187,6 +188,9 @@
                                     <li role="presentation" class="">
                                         <a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">About Company</a>
                                     </li>
+                                    <li role="presentation" class="">
+                                        <a href="#tab_content4" role="tab" id="change_password" data-toggle="tab" aria-expanded="false">change Password</a>
+                                    </li>
                                 </ul>
                                 <div id="myTabContent" class="tab-content">
 
@@ -203,6 +207,10 @@
                                                 <th>#</th>
                                                 <th>Job Title</th>
                                                 <th>Posted date</th>
+                                                <th>Expired date</th>
+                                                <th></th>
+
+                                                <th>status</th>
                                                 <th class="hidden-phone">views</th>
                                                 <th>action</th>
                                             </tr>
@@ -214,8 +222,35 @@
                                                     <tr>
                                                         <td>#{{ $job->id }}</td>
                                                         <td>{{ $job->jobTitle }}</td>
-                                                        <td>{{ $job->created_at->format('l F j, Y') }}</td>
-                                                        <td class="hidden-phone">18</td>
+                                                        <td>
+                                                            {{ $job->created_at->format('M j, Y') }}
+                                                        </td>
+                                                        
+                                                        <td>
+                                                            {{ date("M j, Y", strtotime($job->deadLine)) }}
+                                                        </td>
+                                                        <td>
+                                                            @if($job->status)
+                                                                <a href="{{ route('admin.makeJobExpired', ['job_id'=>$job->id]) }}">
+                                                                <i class="fa fa-toggle-on fa-2x  text text-success" aria-hidden="true"></i>
+                                                                </a>
+                                                            @else
+                                                                <a href="{{ route('admin.makeJobActive', ['job_id'=>$job->id]) }}">
+                                                                <i class="fa fa-toggle-off fa-2x" aria-hidden="true"></i>
+                                                                </a>
+                                                                
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                        @if($job->status==1)
+                                                            <i class="fa fa-circle text-success" aria-hidden="true"></i> Active
+                                                        @elseif($job->status==0)
+                                                            <i class="fa fa-times text-danger" aria-hidden="true"></i> <span class="text text-danger pt-1">Expired</span> 
+                                                        @endif
+                                                        </td>
+                                                        <td class="hidden-phone">
+                                                            {{$job->count_view}}
+                                                        </td>
                                                         <td class="vertical-align-mid">
                                                             <a href="{{ route('singleJob',['id'=>$job->id, 'company_id'=>$job->company->id]) }}" target="_blank" class="btn btn-primary btn-xs">
                                                                 <i class="fa fa-folder"></i> View </a>
@@ -273,6 +308,59 @@
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
                                         <blockquote class="message">{!! $company->about !!}</blockquote>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
+                                        <blockquote class="message">
+
+
+                                                <div class="clearfix"></div>
+
+                                                <div class="row">
+                                                    <form role="form" class="form-group" action="{{ route('company.updatepassword', ['company_id'=>$company->id]) }}" method="post" enctype="multipart/form-data">
+                                                        
+                                                        {{ csrf_field() }}
+
+                                                        <div class="panel col-md-8 col-md-offset-2">
+                                                            <div class="page-title">
+                                                                <div class="title_left">
+                                                                    <h3>Change Password</h3>
+                                                                </div>
+                                                            </div>
+
+                                                            
+
+
+                                                            <div class="col-md-12 {{ $errors->has('password') ? ' has-error' : '' }}" style="margin-bottom: 20px">
+                                                                <label for="exampleInputEmail1">New Password</label>
+                                                                <input type="password" name="password" class="form-control" value="{{ old('password') }}" required autofocus placeholder="New password">
+                                                                @if ($errors->has('password'))
+                                                                    <span class="help-block">
+                                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                                </span>
+                                                                @endif
+
+                                                            </div>
+
+                                                            <div class="col-md-12 {{ $errors->has('address') ? ' has-error' : '' }}" style="margin-bottom: 20px">
+                                                                <label for="exampleInputEmail1">Confirm new password</label>
+                                                                <input type="password" name="password_confirmation" class="form-control" value="" required autofocus placeholder="Confirm new password">
+                                                            </div>
+
+                                                            <div class="col-md-12 {{ $errors->has('address') ? ' has-error' : '' }}" style="margin-bottom: 50px">
+                                                                <button class="btn btn-success">
+                                                                    <i class="fa fa-edit m-right-xs"></i>
+                                                                    Change Password
+                                                                </button>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </form>
+
+                                                </div>
+                                       
+
+                                        </blockquote>
                                     </div>
                                 </div>
                             </div>

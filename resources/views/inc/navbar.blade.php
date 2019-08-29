@@ -16,26 +16,7 @@
                 <div class="navbar-collapse collapse" id="navbar-main">
                     <ul class="nav navbar-nav" style="margin-left: 20%">
                         @if (Auth::guest() || Auth::guard('web')->check())
-                            <li>
-                                <a href="/">Home</a>
-                            </li>
-
-                            <li>
-                                <a href="{{ route('findjob') }}">Find Job</a>
-                            </li>
-
-
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Services <span class="caret"></span></a>
-                                <ul class="dropdown-menu" aria-labelledby="download">
-                                    <li><a href="#">Training Resources</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Human Resource</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">How to Find jobs</a></li>
-
-                                </ul>
-                            </li>
+                            
                             
                         @elseif(Auth::guard('admin')->check())
                             <li>
@@ -62,6 +43,26 @@
 
                     <ul class="nav navbar-nav navbar-right">
                         @if (Auth::guest())
+                            <li>
+                                    <a href="/">Home</a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('findjob') }}">Find Job</a>
+                                </li>
+
+
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Services <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" aria-labelledby="download">
+                                        <li><a href="#">Training Resources</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">Human Resource</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">How to Find jobs</a></li>
+
+                                    </ul>
+                                </li>
                             <li><a href="{{ route('employer.login') }}"> Employer - Post Job </a></li>
                             <li><a href="{{ route('login') }}"><i class="fa fa-lock" aria-hidden="true"></i> Login</a></li>
                             <li><a href="{{ route('register') }}"><i class="fa fa-address-card-o" aria-hidden="true"></i> Post CV</a></li>

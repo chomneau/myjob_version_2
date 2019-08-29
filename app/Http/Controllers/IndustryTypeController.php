@@ -21,7 +21,7 @@ class IndustryTypeController extends Controller
 
     public function index()
     {
-        $industry = IndustryType::orderBy('created_at', 'Decs')->get();
+        $industry = IndustryType::orderBy('created_at', 'desc')->get();
         return view('admin.industry.index')->with('industry', $industry);
     }
 

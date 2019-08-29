@@ -58,13 +58,13 @@
 
                                                 <div class="row">
 
-                                                    <div class="col-md-3 col-sm-12">
+                                                    <div class="col-md-4 col-sm-12">
                                                         <h5 style="color: #0DC2C9"><i class="fa fa-map-marker" aria-hidden="true"></i>
 
                                                             {{ $jobByCategories->location->name }}
                                                         </h5>
                                                     </div>
-                                                    <div class="col-md-3 col-sm-12">
+                                                    <div class="col-md-4 col-sm-12">
 
                                                         <h5 style="color: #0DC2C9"><i class="fa fa-id-card-o" aria-hidden="true"></i>
 
@@ -93,18 +93,8 @@
                                                         {{--</script>--}}
                                                         {{----}}
                                                     </div>
-                                                    <div class="col-md-3 col-sm-12">
-                                                        {{--<h5 style="color: #0DC2C9"><i class="fa fa-id-card-o" aria-hidden="true"></i>--}}
-
-                                                            {{--@foreach($countCategory as $countCategories)--}}
-                                                                {{--@if($countCategories->id == $jobByCategories->category_id)--}}
-                                                                    {{--{{ $countCategories->name }}--}}
-                                                                {{--@endif--}}
-                                                            {{--@endforeach--}}
-
-                                                        {{--</h5>--}}
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-12">
+                                                    
+                                                    <div class="col-md-4 col-sm-12 text-right">
                                                         <h5 style="color: #0DC2C9; margin-left: -30px "><i class="fa fa-clock-o" aria-hidden="true"></i>
                                                             @foreach($contractType as $contractTypes)
                                                                 @if($contractTypes->id == $jobByCategories->contractType_id)

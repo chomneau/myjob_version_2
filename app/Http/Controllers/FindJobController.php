@@ -20,8 +20,10 @@ use App\IndustryType;
 use App\Level;
 use App\PreferredExperience;
 use App\SalaryRange;
+use Session;
 
 class FindJobController extends Controller
+
 {
     /**
      * Display a listing of the resource.
@@ -35,12 +37,17 @@ class FindJobController extends Controller
 
 
 
-        $this->countCategory = Category::withCount('job')->take(7)->get();
+        $this->countCategory = Category::withCount(['job'=>function($query){
+            $query->where('status',1);
+        }])->take(7)->get();
+
         View::share('countCategory', $this->countCategory);
 
-        $this->industryType = IndustryType::withCount('company')->take(7)->get();
-        View::share('industryType', $this->industryType);
+        $this->company = Company::with('job')->get();
+        View::share('company', $this->company);
 
+        $this->industryType = IndustryType::all();
+        View::share('industryType', $this->industryType);
 
         $this->companyType = companyType::all();
         View::share('companyType', $this->companyType);
@@ -64,33 +71,26 @@ class FindJobController extends Controller
         View::share('preExperience', $this->preExperience);
     }
 
-    //testing
-    public function testform(){
-        return view('test');
-    }
-
-    public function storedata(Request $request){
-        $this->validate($request, [
-            'textarea' => 'required'
-        ]);
-        return 1234;
-
-    }
-
-
-
-
-
 
 
     public function index()
     {
 
         //$job = Job::with('company')->paginate(5);
-        $job = Job::with('company')->orderBy('created_at', 'Desc')->paginate(11);
+        $job = Job::with('company')->orderBy(\DB::raw('RAND(12)'))->where('status',1)->paginate(20);
         $location = Location::withCount('job')->take(7)->get();
-        $category = Category::withCount('job')->take(7)->get();
+        $category = Category::withCount(['job'=>function($query){
+            $query->where('status',1);
+        }])->take(7)->get();
+
+      // $category = Category::whereHas('job', function ($query){
+      //  $query->where('status', 1)->count();
+       // })->take(7)->get();
+
+
         $industryType = IndustryType::withCount('company')->take(7)->get();
+
+
         return view('pages.findjob')->with([
             'job'=>$job,
             'locationCount'=> $location,
@@ -98,9 +98,13 @@ class FindJobController extends Controller
             'countIndustry'=>$industryType,
         ]);
     }
+
+   
+
+
 //Search job
     public function search(){
-        $job = Job::where('jobTitle','like', '%'. request('query') .  '%')->paginate(10);
+        $job = Job::where('jobTitle','like', '%'. request('query') .  '%')->where('status',1)->paginate(10);
 
         return view('search.result')->with('job', $job)
             ->with('jobTitle', 'Search results :' .request('query'));
@@ -109,16 +113,16 @@ class FindJobController extends Controller
 
 
 
-
-
-
     public function jobByCategory($id)
     {
         $catLabel = Category::find($id);
 
         $jobByCategory = Job::with('company')
-            ->where('category_id', $id)->orderBy('created_at', 'Desc')->paginate(11);
-        return view('pages.jobByCategory')->with(['jobByCategory'=> $jobByCategory, 'catLabel'=>$catLabel]);
+            ->where('category_id', $id)->where('status',1)->paginate(11);
+        return view('pages.jobByCategory')->with([
+            'jobByCategory'=>$jobByCategory, 
+            'catLabel'=>$catLabel
+            ]);
     }
 
 //job by location
@@ -143,58 +147,60 @@ class FindJobController extends Controller
 
     public function jobByIndustry($id)
     {
-        $jobIndustry = IndustryType::find($id);
+        $company = Company::find($id)->job->where('status', 1);
 
-        $jobByIndustry = Job::whereHas('company', function ($query) use($id){
-            $query->where('industry_type_id', $id);
-        })->orderBy('created_at', 'Desc')->paginate(11);
-
+        
         //return $jobByIndustry;
-        return view('pages.jobByIndustry')->with(['jobByIndustry'=> $jobByIndustry, 'jobIndustry'=>$jobIndustry]);
+        return view('pages.jobByCompany')->with([
+            'jobByCompany'=> $company, 
+            //'company'=>$company
+            ]);
     }
 
 
 //find job by all location
     public function allLocation(){
-        $allLocation = $location = Location::withCount('job')->get();
+        $allLocation = Location::withCount(['job'=>function($query){
+            $query->where('status',1);
+        }])->take(7)->get();
         return view('pages.all-location')->with('allLocation', $allLocation);
     }
 
     //find Job by industry
 
     public function allIndustry(){
-        $industryType = IndustryType::withCount('company')->get();
-        return view('pages.all-industry')->with('industryType', $industryType);
+        $company = Company::with('job')->orderBy('companyName', 'asc')->paginate(30);
+       // return $company;
+        return view('pages.all-industry')->with('company', $company);
     }
 
     //Find job by Category
 
     public function allCategory(){
-        $allCategory = Category::withCount('job')->get();
+        $allCategory = Category::withCount(['job'=>function($query){
+            $query->where('status',1);
+        }])->take(7)->get();
         return view('pages.all-category')->with('allCategory', $allCategory);
     }
 
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id, $company_id)
     {
+        //count viewer when they click on single job post and refresh not count
+        $count_view = Job::find($id);
+        
+        if(!in_array($id, session('visited_job', []))){
+            session()->push('visited_job', $id);
+            $count_view->count_view +=1;
+            $count_view->save();
+            
+        }
+
+
+
+
         $singleJob = Job::find($id);
         $company = Company::find($company_id);
         $similarJobs = Job::with('company')
@@ -209,37 +215,4 @@ class FindJobController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

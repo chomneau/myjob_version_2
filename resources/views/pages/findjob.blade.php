@@ -1,6 +1,4 @@
-{{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">--}}
 
-{{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--}}
 
 @extends('layouts.app')
 @section('content')
@@ -11,7 +9,7 @@
 
             {{--Listing job in the right side--}}
 
-            <div class="col-md-9 col-sm-12">
+            <div class="col-md-9">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="font-size: 18px; ;color: #1b6d85 ">LATEST JOBS</div>
                     <div class="panel-body">
@@ -35,6 +33,7 @@
                                                 </a>
                                                 {{--<button class="mybtn pull-right" style="margin-top: -20px">--}}
                                                     {{--<a href="{{ route('singleJob',['id'=>$jobs->id, 'company_id'=>$jobs->company->id]) }}" >View now</a>--}}
+
                                                 <div class=" pull-right" style="margin-top: 0px;margin-right: 10px; color:#C97975">
                                                     <i class="fa fa-calendar-times-o" aria-hidden="true"></i> closing date:
                                                     {{ Carbon\Carbon::createFromTimestamp(strtotime($jobs->deadLine))->toFormattedDateString()}}
@@ -54,13 +53,13 @@
 
                                                     <div class="row">
 
-                                                        <div class="col-md-3 col-sm-12">
+                                                        <div class="col-md-4 col-sm-12">
                                                             <h5 style="color: #0DC2C9"><i class="fa fa-map-marker" aria-hidden="true"></i>
 
                                                                 {{ $jobs->location->name }}
                                                             </h5>
                                                         </div>
-                                                        <div class="col-md-3 col-sm-12">
+                                                        <div class="col-md-4 col-sm-12">
                                                             {{----}}
                                                             {{--<a href="#" data-toggle="tooltip" title="Deadline!">--}}
                                                                 {{--<h5 style="color: #C97975">--}}
@@ -90,7 +89,7 @@
                                                             </h5>
 
                                                         </div>
-                                                        <div class="col-md-3 col-sm-12">
+                                                        <div class="col-md-4 col-sm-12 text-center">
                                                             {{--<h5 style="color: #0DC2C9; margin-left: 25px"><i class="fa fa-bookmark" aria-hidden="true"></i>--}}
 
                                                                 {{--@foreach($countCategory as $countCategories)--}}
@@ -101,7 +100,7 @@
 
                                                             {{--</h5>--}}
                                                         </div>
-                                                        <div class="col-md-3 col-sm-12">
+                                                        <div class="col-md-3 col-sm-12 text-right pull-right">
                                                             <h5 style="color: #0DC2C9; margin-left: -30px" ><i class="fa fa-clock-o" aria-hidden="true"></i>
                                                                 @foreach($contractType as $contractTypes)
                                                                     @if($contractTypes->id == $jobs->contractType_id)

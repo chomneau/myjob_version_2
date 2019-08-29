@@ -1,3 +1,4 @@
+
 <!-- Bootstrap -->
 <link href="{{ asset('vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
 <!-- Font Awesome -->
@@ -19,6 +20,10 @@
 
 {{--formwizard style--}}
 <link href="{{ asset('css/formwizard.css') }}" rel="stylesheet">
+<link href="{{ asset('css/cicular-images.css') }}" rel="stylesheet">
+
+
+
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
@@ -31,5 +36,7 @@
 
 {{--<!-- (Optional) Latest compiled and minified JavaScript translation files -->--}}
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script>--}}
+
+<link href="{{ asset('css/profile_style.css') }}" rel="stylesheet">
 
 

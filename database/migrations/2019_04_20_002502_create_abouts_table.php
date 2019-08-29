@@ -13,11 +13,11 @@ class CreateAboutsTable extends Migration
      */
     public function up()
     {
-        Schema::table('about', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('photo');
+        Schema::create('abouts', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('photo')->nullable();
             $table->string('title');
-            $table->longText('description');
+            $table->longText('body');
             $table->timestamps();
         });
     }
@@ -29,8 +29,6 @@ class CreateAboutsTable extends Migration
      */
     public function down()
     {
-        Schema::table('about', function (Blueprint $table) {
-            Schema::dropIfExists('about');
-        });
+        Schema::dropIfExists('abouts');
     }
 }

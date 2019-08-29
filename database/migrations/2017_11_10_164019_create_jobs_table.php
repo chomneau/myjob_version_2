@@ -25,6 +25,8 @@ class CreateJobsTable extends Migration
             $table->integer('salaryRange_id');
             $table->integer('location_id');
             $table->string('hire');
+            $table->boolean('status');
+            $table->integer('count_view');
             $table->string('deadLine');
             $table->integer('level_id');
             $table->integer('degree_id');

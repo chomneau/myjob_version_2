@@ -63,8 +63,8 @@
                                 <th style="width: 1%">#</th>
                                 <th style="width: 20%">Company Name</th>
                                 <th>Industry Type</th>
-                                <th>Job Posting Progress</th>
-                                <th>Status</th>
+                                <th>Job Posted</th>
+                                
                                 <th style="width: 20%">#Edit</th>
                             </tr>
                             </thead>
@@ -87,19 +87,16 @@
                                                 @endforeach
                                             @endif
                                         </td>
-                                        <td class="project_progress">
-                                            <div class="progress progress_sm">
-                                                <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="80"></div>
-                                            </div>
-                                            <small>80% Complete</small>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-success btn-xs">Success</button>
+                                        
+                                        <td class="text-left" style="padding-left:10px">
+                                            <button type="button" class="btn btn-success btn-xs">
+                                                {{ $com->job->count() }}
+                                            </button>
                                         </td>
                                         <td>
                                             <a href="{{ route('admin.company.profile', ['id'=>$com->id] ) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
                                             <a href="{{ route('company.edit', ['id'=>$com->id]) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                                            {{--<a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>--}}
+                                            <a href="{{ route('company.delete', ['id'=>$com->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
                                         </td>
                                     </tr>
                                 @endforeach

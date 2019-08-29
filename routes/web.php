@@ -14,12 +14,21 @@ use App\User;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::get('/test', 'FindJobController@testform')->name('testform');
-Route::post('/test', 'FindJobController@storedata')->name('storedata');
+ Route::get('/about', 'AboutController@index')->name('about');
+// Route::post('/test', 'FindJobController@storedata')->name('storedata');
+
+
+Route::get('/verifyEmailFirst', 'Auth\RegisterController@verifyEmailFirst')->name('verifyEmailFirst');
+Route::get('/verify/{email}/{verifyToken}', 'Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
+
 
 
 
 Route::get('/', 'FindJobController@index');
+
+//count job viwer by user
+Route::get('/countViewer', 'FindJobController@countViewer')->name('countViewer');
+
 
 
 //search route
@@ -30,8 +39,20 @@ Route::post('/employer/login', 'Auth\EmployerLoginController@employerLogin')->na
 //employer register
 Route::get('/employer/register', 'Auth\EmployerRegisterController@showEmployerRegisterForm')->name('employer.register');
 Route::post('/employer/register', 'Auth\EmployerRegisterController@employerRegister')->name('employer.register.submit');
+
+
 Route::get('/employer/{id}', 'EmployerController@index')->name('employer.profile');
 Route::get('/employer', 'EmployerController@index')->name('employer.dashboard');
+
+
+Route::get('/employer/complete/profile/{company_id}', 'Auth\EmployerRegisterController@registerEmployer')->name('registerEmployer');
+
+//make job active or expired in employer profile
+Route::get('/employer/makeJobActive/{job_id}', 'EmployerJobController@makeJobActive')->name('employer.makeJobActive');
+Route::get('/employer/makeJobExpired/{job_id}', 'EmployerJobController@makeJobExpired')->name('employer.makeJobExpired');
+
+
+
 
 Route::get('/employer/viewAllJobs', 'EmployerController@employeeAllJobs')->name('employer.viewAllJobs');
 Route::get('/employer/edit/{id}', 'EmployerController@edit')->name('employer.edit');
@@ -117,6 +138,19 @@ Route::get('/education/delete/{id}', 'UserEducationController@destroy')->name('e
 
 Route::prefix('admin')->group(function (){
 
+    //about page setting
+    Route::get('/about', 'AboutController@index')->name('admin.index');
+    //about store
+    Route::post('/about/update/{id}', 'AboutController@update')->name('about.update');
+    //edit about
+    Route::get('/about/edit/{id}', 'AboutController@edit')->name('about.edit');
+
+    //job seeker
+    Route::get('/alljobseeker', 'AdminController@showAlljobseeker')->name('admin.jobseeker');
+    Route::get('/jobseeker/single/{jobseeker_id}', 'AdminController@singleJobseeker')->name('admin.jobseeker.single');
+    
+    //job seeker
+
     Route::get('/login', 'auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'auth\AdminLoginController@login')->name('admin.login.submit');
 
@@ -183,7 +217,10 @@ Route::prefix('admin')->group(function (){
     Route::post('/preExperience/update/{id}', 'PreferredExperController@update')->name('preExperience.update');
     Route::get('/preExperience/delete/{id}', 'PreferredExperController@destroy')->name('preExperience.delete');
 
-
+//make job active or expired
+    Route::get('/makeJobActive/{job_id}', 'JobController@makeJobActive')->name('admin.makeJobActive');
+    Route::get('/makeJobExpired/{job_id}', 'JobController@makeJobExpired')->name('admin.makeJobExpired');
+        
 
 //create new job
     Route::resource('/createjob', 'JobController');
@@ -197,6 +234,8 @@ Route::prefix('admin')->group(function (){
     Route::resource('/company', 'CompanyController');
     Route::get('/company/profile/{id}', 'CompanyController@show')->name('admin.company.profile');
     Route::post('/company/update/{id}', 'CompanyController@update')->name('company.update');
+    Route::get('/company/delete/{id}', 'CompanyController@destroy')->name('company.delete');
+    Route::post('/company/updatePassword/{company_id}', 'CompanyController@companyUpdatePassword')->name('company.updatepassword');
 
     Route::resource('/company/note', 'NoteController');
     Route::post('/company/note/{id}', 'NoteController@store')->name('company.note');

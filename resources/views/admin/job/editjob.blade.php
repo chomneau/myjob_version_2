@@ -9,7 +9,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Edit Job <small>Sessions</small></h2>
+                        <h2>Edit Job 123 <small>Sessions</small></h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -25,6 +25,21 @@
                                             @include('admin.job.components.edit-job-detail')
                                             @include('admin.job.components.edit-job-preferred-candidate')
                                             <hr>
+                                            <!-- update status -->
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="experience">Status</label>
+                                                    <select name="experience" id="" class="form-control" required>
+                                                        <option >--select Status--</option>
+                                                        <option value="0">Expired</option>
+                                                        <option value="1">Active</option>
+                                                        
+                                                        
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            <!-- end update status -->
                                             <ul class="list-inline pull-right" style="margin-bottom: 3em">
                                                 <li><button type="submit" class="btn btn-primary next-step">update now</button></li>
                                             </ul>

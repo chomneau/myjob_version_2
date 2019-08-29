@@ -24,7 +24,6 @@ use App\SalaryRange;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Hash;
 use Session;
-
 use View;
 //use Illuminate\Support\Facades\Input as input;
 
@@ -82,33 +81,31 @@ class EmployerController extends Controller
      */
     public function index()
     {
-        $user_id = auth()->user()->id;
-        $company = Company::find($user_id);
+
+        $user = Auth()->User()->id;
+        $com = Employer::find($user);
+        $activeJob = Employer::find($user)->company->job->where('status', 1)->count();
+        $expiredJob = Employer::find($user)->company->job->where('status', 0)->count();
+
+        
         return view('employer.employer-profile')
             ->with([
-                'company'=>$company,
-                'note'=>$company->note,
-                'jobPost'=>$company->job,
+                'company'=>$com->company,
+                'note'=>$com->company->note,
+                'jobPost'=>$com->company->job,
+                'activeJob'=>$activeJob,
+                'expiredJob'=>$expiredJob,
             ]);
-        //  return view('admin.company.company-profile')->with('company', $company);
+        
     }
-
-
-
-
-
-        //return view('admin.company.company-profile');
-       // return view('employer.employer-home')->with('employer', Auth::user());
-//        $company = Company::with('industryType')->orderBy('created_at', 'desc')
-//            ->take(10)
-//            ->get();
-//        return view('admin.company.view-all-company')->with('company', $company);
-
 
     public function employeeAllJobs(){
         $user_id = Auth::user();
         $jobPost = Job::find($user_id);
-        return view('employer.employer-all-jobs')->with('jobPost', $jobPost);
+        
+        return view('employer.employer-all-jobs')->with([
+            'jobPost'=>$jobPost,
+            ]);
 
     }
 

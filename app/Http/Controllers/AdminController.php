@@ -10,6 +10,11 @@ use Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Hash;
+use App\User;
+use App\Location;
+use View;
+use App\Uploadcv;
+use App\IndustryType;
 
 
 class AdminController extends Controller
@@ -22,6 +27,13 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->middleware('auth:admin');
+
+        $this->location = Location::all();
+        View::share('location', $this->location);
+
+        $this->industryType = IndustryType::all();
+        View::share('industryType', $this->industryType);
+    
     }
 
     /**
@@ -178,6 +190,33 @@ class AdminController extends Controller
             return redirect()->back();
         }
     }
+
+
+    //job seeker
+    public function showAlljobseeker()
+    {
+        $job_seeker = User::all();
+        return view('admin.job_seeker.index_jobseeker')->with(
+            [
+                'job_seeker'=>$job_seeker,
+            ] 
+        );
+    }
+    public function singleJobseeker($jobseeker_id)
+    {
+
+        $job_seeker = User::find($jobseeker_id);
+        $uploadCV = User::find($jobseeker_id)->Uploadcv;
+        return view('admin.job_seeker.job_seeker_single')->with(
+            [
+                'job_seeker'=>$job_seeker,
+                'uploadCv'=>$uploadCV
+            ] 
+        );
+    }
+
+
+    //end job seeker
 
 
 

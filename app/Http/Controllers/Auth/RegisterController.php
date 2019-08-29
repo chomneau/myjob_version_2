@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Profile;
+use Illuminate\Support\Str;
+use Mail;
+use App\Mail\verifyEmail;
 
 class RegisterController extends Controller
 {
@@ -68,15 +71,60 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'verifyToken'=>Str::random(40),
         ]);
         Profile::create([
             'user_id' => $user->id,
         ]);
 
-//        Experience::create([
-//            'user_id' => $user->id,
-//        ]);
+        $thisUser = User::findOrFail($user->id);
+        $this->sendEmail($thisUser);
+
         return $user;
 
+        
+
     }
+
+    //send email to user's email
+
+    public function sendEmail($thisUser){
+
+        Mail::to($thisUser['email'])->send(new verifyEmail($thisUser));
+    }
+
+
+    //verify email
+
+    public function verifyEmailFirst(){
+
+        return view('user.email.verifyEmailFirst');
+    }
+
+
+    public function sendEmailDone($email, $verifyToken){
+
+        $user = User::where(['email'=>$email, 'verifyToken'=>$verifyToken])->first();
+        if($user){
+            return User::where(['email'=>$email, 'verifyToken'=>$verifyToken])->update(['status'=>'1', 'verifyToken'=>NULL]);
+        }else{
+            return "user not found";
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

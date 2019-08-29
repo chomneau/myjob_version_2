@@ -72,7 +72,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-sm-6" style="margin-bottom: 2em">
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <p style="color: #0b97c4;font-size: 20px; font-family: 'Roboto Condensed', sans-serif;">
                                                         {{ $singleJob->jobTitle }}
                                                     </p>
@@ -97,9 +97,8 @@
                                                     </p>
 
                                                 </div>
-                                                <div class="col-md-6" style="margin-top: 35px; padding-right: 25px">
-                                                    {{--<button class="btn-apply pull-right">Apply Now !</button>--}}
-                                                </div>
+                                                
+
                                             </div>
 
                                         </div>
@@ -110,7 +109,7 @@
                                         </h3>
                                         <hr style="margin-top: 3px; margin-left: 1em; ">
 
-                                        <div class="col-md-3 col-sm-6">
+                                        <div class="col-md-6 col-sm-6">
 
                                             @if(count($contractType))
                                                 @foreach($contractType as $contractTypes)
@@ -125,7 +124,7 @@
                                            @endif
                                         </div>
                                         {{--Salary Range--}}
-                                        <div class="col-md-3 col-sm-6" style="margin-left: -10px">
+                                        <div class="col-md-6 col-sm-6" style="margin-left: -10px">
                                             @if(count($salaryRange))
                                                 @foreach($salaryRange as $salaryRanges)
                                                     @if($salaryRanges->id == $singleJob->salaryRange_id)
@@ -137,22 +136,27 @@
                                                 @endforeach
                                             @endif
                                         </div>
+                                        <h3 style="font-family: 'Roboto Condensed', sans-serif; font-size: 18px; margin-left: 1em; color:white">
+                                            -
+                                        </h3>
+                                        <hr style="margin-top: 3px; margin-left: 1em; ">
                                         {{--Job Category--}}
-                                        <div class="col-md-3 col-sm-6">
+                                        <div class="col-md-6 col-sm-6">
                                             @if(count($countCategory))
                                                 @foreach($countCategory as $countCategories)
                                                     @if($countCategories->id == $singleJob->category_id)
                                                         <span style="color: #00AEEF">
                                                             <i class="fa fa-bookmark" aria-hidden="true"></i>
-                                                        </span>
+                                                        </span> 
 
                                                         {{ $countCategories->name }}
                                                     @endif
                                                 @endforeach
                                             @endif
                                         </div>
+                                        
                                         {{--number of hiring--}}
-                                        <div class="col-md-3 col-sm-6" style="margin-left: -10px">
+                                        <div class="col-md-6 col-sm-6" style="margin-left: -10px">
                                             <span style="color: #00AEEF">
                                                <i class="fa fa-user" aria-hidden="true"></i> Hire :
                                             </span>
@@ -302,7 +306,7 @@
                         </h3>
                         <hr style="margin-top: 3px; margin-left: 1em">
 
-                        <p style="font-size: 14px; margin-left: 30px">
+                        <p style="font-size: 14px; margin-left: 2em">
                             {!! $company->about !!}
                         </p>
 

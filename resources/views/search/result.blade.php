@@ -33,9 +33,10 @@
                                                 <a href="{{ route('singleJob',['id'=>$jobs->id, 'company_id'=>$jobs->company->id]) }}" >
                                                     <p style="font-size: 18px"> {{ $jobs->jobTitle }}</p>
                                                 </a>
-                                                <button class="mybtn pull-right" style="margin-top: -20px">
-                                                    <a href="{{ route('singleJob',['id'=>$jobs->id, 'company_id'=>$jobs->company->id]) }}" >View now</a>
-                                                </button>
+                                                <div class=" pull-right" style="margin-top: 0px;margin-right: 10px; color:#C97975">
+                                                    <i class="fa fa-calendar-times-o" aria-hidden="true"></i> closing date:
+                                                    {{ Carbon\Carbon::createFromTimestamp(strtotime($jobs->deadLine))->toFormattedDateString()}}
+                                                </div>
                                                 <a href="#" >
                                                     <p style="font-size: 14px"><i class="fa fa-briefcase" aria-hidden="true"></i>
                                                         {{ $jobs->company->companyName }}
@@ -50,32 +51,14 @@
 
                                                 <div class="row">
 
-                                                    <div class="col-md-3 col-sm-12">
+                                                    <div class="col-md-4 col-sm-12">
                                                         <h5 style="color: #0DC2C9"><i class="fa fa-map-marker" aria-hidden="true"></i>
 
                                                             {{ $jobs->location->name }}
                                                         </h5>
                                                     </div>
-                                                    <div class="col-md-3 col-sm-12">
-                                                        <a href="#" data-toggle="tooltip" title="Deadline!">
-                                                            <h5 style="color: #C97975">
-
-                                                                <i class="fa fa-calendar-times-o" aria-hidden="true"></i>
-
-                                                                {{ Carbon\Carbon::createFromTimestamp(strtotime($jobs->deadLine))->toFormattedDateString()}}
-                                                                {{--{{ Carbon\Carbon::createFromTimestamp(strtotime($jobs->deadLine))->addDays(30)->diffForHumans()}}--}}
-                                                                {{--{{ Carbon\Carbon::now()->addDays(30)->diffForHumans()}}--}}
-
-                                                            </h5>
-                                                        </a>
-
-                                                        <script>
-                                                            $(document).ready(function(){
-                                                                $('[data-toggle="tooltip"]').tooltip();
-                                                            });
-                                                        </script>
-                                                    </div>
-                                                    <div class="col-md-3 col-sm-12">
+                                                    
+                                                    <div class="col-md-4 col-sm-12">
                                                         <h5 style="color: #0DC2C9"><i class="fa fa-bookmark" aria-hidden="true"></i>
 
                                                             @foreach($countCategory as $countCategories)
@@ -86,7 +69,7 @@
 
                                                         </h5>
                                                     </div>
-                                                    <div class="col-md-3 col-sm-12">
+                                                    <div class="col-md-4 col-sm-12 pull-right text-right">
                                                         <h5 style="color: #0DC2C9"><i class="fa fa-clock-o" aria-hidden="true"></i>
                                                             @foreach($contractType as $contractTypes)
                                                                 @if($contractTypes->id == $jobs->contractType_id)

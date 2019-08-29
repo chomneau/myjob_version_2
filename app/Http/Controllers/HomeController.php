@@ -31,7 +31,10 @@ class HomeController extends Controller
     {
         $user_id = auth()->user()->id;
         $user_CV = User::find($user_id);
-         return view('home')->with(['user'=>Auth::user(), 'uploadCv'=>$user_CV->uploadcv]);
+         return view('home')->with([
+             'user'=>Auth::user(), 
+             'uploadCv'=>$user_CV->uploadcv
+             ]);
     }
 
 }

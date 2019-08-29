@@ -123,6 +123,7 @@ class EmployerJobController extends Controller
         $job->contractType_id = $request->jobContract;
         $job->category_id = $request->jobCategory;
         $job->salaryRange_id = $request->jobSalary;
+        $job->status = 1;
         $job->location_id = $request->jobLocation;
         $job->hire = $request->jobHiring;
         $job->deadLine = $request->jobDeadLine;
@@ -231,4 +232,26 @@ class EmployerJobController extends Controller
         Session::flash('success', 'You have deleted a job successfully!');
         return redirect()->back();
     }
+
+//make job active or expired
+
+     //make job active 
+     public function makeJobActive($job_id)
+     {
+         $activeJob = Job::findOrFail($job_id);
+         $activeJob->status = 1;
+         $activeJob->save();
+         Session::flash('success', 'Make job active successfully!');
+         return redirect()->back();
+     }
+
+     //make job expired
+     public function makeJobExpired($job_id)
+     {
+         $expiredJob = Job::findOrFail($job_id);
+         $expiredJob->status = 0;
+         $expiredJob->save();
+         Session::flash('success', 'Make job Expired successfully!');
+         return redirect()->back();
+     }
 }

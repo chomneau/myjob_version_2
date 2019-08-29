@@ -16,7 +16,7 @@ class CategoryController extends Controller
         $this->middleware('auth:admin');
     }
     public function index(){
-        $category = Category::orderBy('created_at', 'Decs')->get();
+        $category = Category::orderBy('created_at', 'desc')->get();
         return view('admin.category.index')->with('category', $category);
     }
 

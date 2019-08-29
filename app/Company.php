@@ -27,7 +27,7 @@ class Company extends Model
 
     public function note()
     {
-        return $this->hasMany('App\Note');
+        return $this->hasMany(Note::class);
     }
 
     public function companyType()

@@ -111,13 +111,7 @@
                                                 {{ $indus->name }}
                                             @endif
                                         @endforeach
-                                        {{--@if($industryType->id == $company->industryType_id)--}}
-                                        {{--12--}}
-                                        {{--@endif--}}
-                                        {{--<p>Automation & Testing</p>--}}
-                                        {{--<div class="progress progress_sm">--}}
-                                        {{--<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>--}}
-                                        {{--</div>--}}
+
                                     </li>
                                     <li>
                                         <strong>Employees :</strong>
@@ -127,10 +121,7 @@
                                             @endif
                                         @endforeach
 
-                                        {{--<p>UI / UX</p>--}}
-                                        {{--<div class="progress progress_sm">--}}
-                                        {{--<div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>--}}
-                                        {{--</div>--}}
+                                        
                                     </li>
 
                                 </ul>
@@ -159,10 +150,11 @@
                                     </li>
                                     <li>
                                         <span class="name"> Active job posting </span>
-                                        <span class="value text-success"> 2000 </span>
+                                        <span class="value text-success"> 
+                                            {{ $activeJob }} </span>
                                     </li>
                                     <li class="hidden-phone">
-                                        <span class="name"> Total Views </span>
+                                        <span class="name"> Expired Job Posting </span>
                                         <span class="value text-success"> 20 </span>
                                     </li>
                                 </ul>
@@ -203,6 +195,9 @@
                                                     <th>#</th>
                                                     <th>Job Title</th>
                                                     <th>Posted date</th>
+                                                    <th>Expired date</th>
+                                                    <th></th>
+                                                    <th>status</th>
                                                     <th class="hidden-phone">views</th>
                                                     <th>action</th>
                                                 </tr>
@@ -214,7 +209,35 @@
                                                         <tr>
                                                             <td>#{{ $job->id }}</td>
                                                             <td>{{ $job->jobTitle }}</td>
-                                                            <td>{{ $job->created_at->format('l F j, Y') }}</td>
+                                                            <td>
+                                                            {{ $job->created_at->format('F j, Y') }}
+                                                            </td>
+                                                            
+                                                            <td>
+                                                                {{ date("F j, Y", strtotime($job->deadLine)) }}
+                                                            </td>
+                                                            <td>
+                                                            @if($job->status)
+                                                                <a href="{{ route('employer.makeJobExpired', ['job_id'=>$job->id]) }}" alt="taggle to make expired job">
+                                                                <i class="fa fa-toggle-on fa-2x  text text-success" aria-hidden="true"></i>
+                                                                </a>
+                                                            @else
+                                                                <a href="{{ route('employer.makeJobActive', ['job_id'=>$job->id]) }}">
+                                                                <i class="fa fa-toggle-off fa-2x" aria-hidden="true"></i>
+                                                                </a>
+                                                                
+                                                            @endif
+                                                        </td>
+
+                                                            <td>
+                                                                
+                                                                @if($job->status==1)
+                                                                <i class="fa fa-dot-circle-o text-success" aria-hidden="true"></i> Active
+                                                                @elseif($job->status==0)
+                                                                <i class="fa fa-times text-danger" aria-hidden="true"></i>
+                                                                <span class="text text-danger">Expired</span> 
+                                                                @endif
+                                                            </td>
                                                             <td class="hidden-phone">18</td>
                                                             <td class="vertical-align-mid">
                                                                 <a href="{{ route('singleJob',['id'=>$job->id, 'company_id'=>$job->company->id]) }}" target="_blank" class="btn btn-primary btn-xs">

@@ -21,6 +21,10 @@ use Illuminate\Http\Request;
 use Session;
 use Auth;
 use View;
+use App\Employer;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Hash;
+
 class CompanyController extends Controller
 {
 
@@ -66,13 +70,19 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $company = Company::with('industryType')->orderBy('created_at', 'desc')
+        $company = Company::with('job')->orderBy('created_at', 'desc')
             ->paginate(15);
-       return view('admin.company.view-all-company')->with('company', $company);
-//    $industry = IndustryType::with('company')->orderBy('created_at', 'desc')
-//            ->take(10)
-//            ->get();
-//        return view('admin.company.view-all-company')->with('industry', $industry);
+
+         
+
+       // return $job_count_by_company[1];
+       return view('admin.company.view-all-company')->with([
+           'company'=>$company,
+          // 'job_count_by_company'=>$job_count_by_company,
+       ]);
+
+
+
     }
 
     /**
@@ -107,10 +117,18 @@ class CompanyController extends Controller
             'address' => 'required'
         ]);
 
+        $employer = new Employer();
+        $employer->name = $request->companyName;
+        $employer->email = $request->email;
+        $employer->password = bcrypt('Paysjob.com');
+        $employer->save();
+            
+
         //$user = Auth::user();
         $company = new Company();
         //upload image for user
 
+        $company->user_id = $employer->id;
         $company->companyName = $request->companyName;
         $company->contactPerson = $request->contactPerson;
         $company->employeeSize_id = $request->employeeSize;
@@ -122,7 +140,7 @@ class CompanyController extends Controller
         $company->website = $request->website;
         $company->address = $request->address;
         $company->about = $request->about;
-        $company->user_id = auth::user()->id;
+        
         $company->save();
 
         if($request->hasFile('logo'))
@@ -138,10 +156,6 @@ class CompanyController extends Controller
         return redirect('admin/company');
 
 
-   //$com = Company::all();
-//        $va = 5;
-//        $la = 4;
-//        return $va + $la;
     }
 
     /**
@@ -153,11 +167,16 @@ class CompanyController extends Controller
     public function show($id)
     {
         $company = Company::find($id);
+        $activeJob = Company::find($id)->job->where('status', 1)->count();
+        $expiredJob = Company::find($id)->job->where('status', 0)->count();
+        
         return view('admin.company.company-profile')
             ->with([
                 'company'=>$company,
                 'note'=>$company->note,
                 'jobPost'=>$company->job,
+                'activeJob'=>$activeJob,
+                'expiredJob'=>$expiredJob,
 
             ]);
      //  return view('admin.company.company-profile')->with('company', $company);
@@ -213,8 +232,12 @@ class CompanyController extends Controller
         $company->website = $request->website;
         $company->address = $request->address;
         $company->about = $request->about;
-        $company->user_id = auth::user()->id;
         $company->save();
+
+        $employer = Employer::find($company->user_id);
+        $employer->name = $request->companyName;
+        $employer->email = $request->email;
+        $employer->save();
 
         if($request->hasFile('logo'))
         {
@@ -229,13 +252,15 @@ class CompanyController extends Controller
         return redirect()->route('admin.company.profile', ['id'=>$company->id]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
 
+    //delete company
+    public function destroy($id)
+    {
+        $com = Company::find($id);
+        $com->delete();
+        Session::flash('success', 'You successfully delete company');
+        return redirect()->back();
+    }
 
 
     //Search job
@@ -247,6 +272,40 @@ class CompanyController extends Controller
             ->with('companyName', 'Search results :' .request('query'));
           
     }
+
+
+
+    //update company password
+    public function companyUpdatePassword( Request $request, $company_id)
+    {
+
+        $this->validate($request, [
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        $com = Company::find($company_id);
+        $employer_id = $com->user_id;
+
+
+        $employer = Employer::find($employer_id);
+
+       // return $employer;
+
+        if (Input::get('password') == Input::get('password_confirmation')) {
+            
+            $employer->password = bcrypt(Input::get('password'));
+            
+            $employer->save();
+
+            Session::flash('success', 'Password changed successfully!');
+
+            return redirect()->route('admin.company.profile', ['id' => $com->id]);
+
+        } else {
+            Session::flash('error', 'password is not match! Try Again');
+            return redirect()->back();
+        }
+     }
 
 
 
