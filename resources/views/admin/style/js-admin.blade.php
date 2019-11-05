@@ -43,8 +43,9 @@
 <script src="{{ asset('vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js') }}"></script>
 
 {{--echart--}}
-<script src="../vendors/echarts/dist/echarts.min.js"></script>
-<script src="../vendors/echarts/map/js/world.js"></script>
+<script src="{{ asset('../vendors/echarts/dist/echarts.min.js')}}"></script>
+<script src="{{ asset('../vendors/echarts/map/js/world.js')}}"></script>
 
 {{--form wizard js--}}
 <script src="{{ asset('js/formwizard.js') }}"></script>
+<script src="{{ asset('js/select2.min.js') }}"></script>

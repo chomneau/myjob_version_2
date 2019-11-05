@@ -1,4 +1,4 @@
-@if ($paginator->hasPages())
+{{-- @if ($paginator->hasPages())
     <ul class="pagination">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
@@ -14,4 +14,4 @@
             <li class="page-item disabled"><span class="page-link">@lang('pagination.next')</span></li>
         @endif
     </ul>
-@endif
+@endif --}}

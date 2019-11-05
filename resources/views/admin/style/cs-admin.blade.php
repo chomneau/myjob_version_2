@@ -38,5 +38,7 @@
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script>--}}
 
 <link href="{{ asset('css/profile_style.css') }}" rel="stylesheet">
+<link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
+
 
 

@@ -109,7 +109,7 @@ class AdminController extends Controller
         $this->validate($request, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-            'address' => 'required',
+            'position' => 'required',
             'phone' => 'required',
             'avatar'=>'required'
         ]);
@@ -129,7 +129,7 @@ class AdminController extends Controller
         $adminProfile->name = $request->name;
         $adminProfile->email = $request->email;
         $adminProfile->Adminprofile->phone = $request->phone;
-        $adminProfile->Adminprofile->address = $request->address;
+        $adminProfile->Adminprofile->position = $request->position;
         $adminProfile->Adminprofile->about = $request->about;
        // $adminProfile->Adminprofile->admin_id = $id;
         $adminProfile->save();

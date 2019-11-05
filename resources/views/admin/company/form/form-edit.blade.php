@@ -113,6 +113,33 @@
             </div>
 
             <div class="row">
+                <div class="col-md-12 {{ $errors->has('facebook_url') ? ' has-error' : '' }}">
+                    <label for="exampleInputEmail1">Facebook page link (url)</label>
+                    <input type="url" name="facebook_url" class="form-control" value="{{ $company->facebook_url }}"  autofocus placeholder="https://web.facebook.com/PaysJobKH/">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 {{ $errors->has('linkedin_url') ? ' has-error' : '' }}">
+                    <label for="linkedin_url">Linkedin Link (url)</label>
+                    <input type="url" name="linkedin_url" class="form-control" value="{{ $company->linkedin_url }}"  autofocus placeholder="https://www.linkedin.com">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 {{ $errors->has('twitter_url') ? ' has-error' : '' }}">
+                    <label for="twitter_url">Twitter Link (url)</label>
+                    <input type="url" name="twitter_url" class="form-control" value="{{ $company->twitter_url }}"  autofocus placeholder="https://twitter.com">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 {{ $errors->has('location_map') ? ' has-error' : '' }}">
+                    <label for="location_map">Embed a Google Map (iframe)</label>
+                    <input type="text" name="location_map" class="form-control" value="{{ $company->location_map }}"  autofocus placeholder="Embed a google map url">
+                            
+                   
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-12 {{ $errors->has('address') ? ' has-error' : '' }}">
                     <label for="exampleInputEmail1">Address</label>
                     <input type="text" name="address" class="form-control" value="{{ $company->address }}" required autofocus placeholder="Company address">

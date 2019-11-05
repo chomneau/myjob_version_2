@@ -7,7 +7,7 @@
         <div class="">
             <div class="page-title">
                 <div class="title_left">
-                    <h3>All Companies <small>Listing all Companies / NGO</small></h3>
+                    <h3>ALL USERS <small>users who control the system</small></h3>
                 </div>
 
                 <div class="title_right">

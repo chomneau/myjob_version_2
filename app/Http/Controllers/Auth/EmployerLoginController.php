@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Validator;
+use Session;
 
 class EmployerLoginController extends Controller
 {
@@ -33,6 +34,7 @@ class EmployerLoginController extends Controller
             return redirect()->intended(route('employer.dashboard'));
         }
         //if unsuccessful, then redirect back to the login with the form data
+        Session::flash('message', 'These credentials do not match our records! Try again!');
         return redirect()->back()->withInput($request->only('email', 'remember'));
     }
 

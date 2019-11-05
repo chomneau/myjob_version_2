@@ -6,7 +6,6 @@
                 <h4 style="font-weight: bold">
                     <a href="#">Related jobs</a>
                 </h4>
-
             </li>
 
                 <div class="row">
@@ -26,6 +25,7 @@
                                     {{ substr($simJob->jobTitle, 0, 18) }} ...
 
                                 @else
+                                
                                     {{ substr($simJob->jobTitle, 0, 18) }}
 
                                 @endif
@@ -43,12 +43,7 @@
                 @endforeach
             @endif
 
-
-
-                </div>
-
-
-
+        </div>
 
             <li class="list-group-item text-center text-uppercase" >
                 <a href="#"><strong>View more</strong>  <i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a>

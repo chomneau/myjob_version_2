@@ -66,12 +66,12 @@
                             </span>
                             @endif
                         </div>
-                        <div class="col-md-12 {{ $errors->has('address') ? ' has-error' : '' }}" style="margin-bottom: 20px">
+                        <div class="col-md-12 {{ $errors->has('position') ? ' has-error' : '' }}" style="margin-bottom: 20px">
                             <label for="exampleInputEmail1">Address</label>
-                            <input type="text" name="address" class="form-control" value="{{ $adminProfile->adminprofile->address }}" required autofocus placeholder="address">
-                            @if ($errors->has('address'))
+                            <input type="text" name="position" class="form-control" value="{{ $adminProfile->adminprofile->position }}" required autofocus placeholder="position">
+                            @if ($errors->has('position'))
                                 <span class="help-block">
-                                <strong>{{ $errors->first('address') }}</strong>
+                                <strong>{{ $errors->first('position') }}</strong>
                             </span>
                             @endif
                         </div>

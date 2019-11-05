@@ -1,13 +1,7 @@
 
-{{--<script--}}
-        {{--src="https://code.jquery.com/jquery-3.2.1.slim.min.js"--}}
-        {{--integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="--}}
-        {{--crossorigin="anonymous">--}}
-
-{{--</script>--}}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> --}}
 
 @extends('admin.admin-layout.main')
 
@@ -103,41 +97,13 @@
 
 
                                                 <a href="{{ route('category.delete', ['id'=>$categories->id]) }}" class="btn btn-danger btn-xs"
-                                                   id="confirmation">
-                                                    <i class="fa fa-trash"></i>
+                                                   id="confirmation" onclick="return confirm('Are you sure you want to delete this item?');">
+                                                    <i class="fa fa-trash" ></i>
                                                     Delete
                                                 </a>
                                                 {{--include edit form for category--}}
                                                 {{--@include('admin.category.editCategory')--}}
-                                                <script type="text/javascript">
-                                                    $('#confirmation').on('click', function () {
-                                                        return confirm('Are you sure? You want to delete category!');
-                                                    });
-                                                </script>
-                                                <script type="text/javascript">
-//                                                    $(document).ready(function () {
-//                                                        $(document).on('click','#editButton', function (event) {
-//                                                            var text = $('#dataItem').text();
-//                                                            var text = $.trim(text);
-//                                                            var id = $(this).find('#itemId').val();
-//                                                            $('#addItem').val(text);
-//                                                            $('#id').val(id);
-//                                                            console.log(text);
-//                                                        });
-//                                                        $('#update').click(function(event){
-//                                                            var id = $('#id').val();
-//                                                            var value = $.trim($('#addItem').val());
-//                                                            $.post('update', {'id':id, 'value':value,'_token':$('input[name=_token]').val()}, function(data){
-//                                                                $('#ItemLoad').load(location.href + ' #ItemLoad');
-//                                                                console.log(data);
-//                                                            });
-//                                                        });
-//
-//
-//                                                    });
-
-
-                                                </script>
+                                                
                                             </td>
                                         </tr>
                                     @endforeach

@@ -94,6 +94,8 @@ class JobController extends Controller
      */
     public function store(Request $request, $id)
     {
+
+        
         $this->validate($request, [
 
         //validate for job table
@@ -123,7 +125,7 @@ class JobController extends Controller
         $job->contractType_id = $request->jobContract;
         $job->category_id = $request->jobCategory;
         $job->salaryRange_id = $request->jobSalary;
-        $job->location_id = $request->jobLocation;
+        // $job->location_id = $request->jobLocation;
         $job->hire = $request->jobHiring;
         $job->status = 1;
 
@@ -134,6 +136,10 @@ class JobController extends Controller
         $job->language = $request->language;
         $job->company_id = $company->id;
         $job->save();
+
+        if($request->jobLocation){
+            $job->location()->attach($request->jobLocation);
+        }
 
         Session::flash('success', 'You have created a new job successfully!');
         return redirect()->route('admin.company.profile', ['id'=>$company->id]);
@@ -148,10 +154,7 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   public function show()
-   {
-       //
-   }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -204,7 +207,7 @@ class JobController extends Controller
         $job->contractType_id = $request->jobContract;
         $job->category_id = $request->jobCategory;
         $job->salaryRange_id = $request->jobSalary;
-        $job->location_id = $request->jobLocation;
+       
         $job->hire = $request->jobHiring;
         $job->deadLine = $request->jobDeadLine;
         $job->level_id = $request->level;
@@ -213,6 +216,10 @@ class JobController extends Controller
         $job->language = $request->language;
         $job->company_id = $company->id;
         $job->save();
+
+        if($request->jobLocation){
+            $job->location()->sync($request->jobLocation);
+        }
 
         Session::flash('success', 'You have updated a job successfully!');
         return redirect()->route('admin.company.profile', ['id'=>$company->id]);

@@ -38,7 +38,11 @@
                             <li><a href="/admin">Dashboard</a></li>
                         </ul>
                     </li>
-                    <li><a><i class="fa fa-th-large"></i> Job Dashboard <span class="fa fa-chevron-down"></span></a>
+                    <li>
+                        <a>
+                            <i class="fa fa-th-large"></i> 
+                            Job Dashboard <span class="fa fa-chevron-down"></span>
+                            </a>
                         <ul class="nav child_menu">
                             <li><a href="{{ route('company.index') }}">View all Companies</a></li>
                             <li><a href="{{ route('company.create') }}">Create new Company</a></li>
@@ -63,7 +67,12 @@
 
 
 
-                    <li><a><i class="fa fa-sliders"></i> Setting <span class="fa fa-chevron-down"></span></a>
+                    <li>
+                        <a>
+                            <i class="fa fa-sliders"></i> 
+                            Setting 
+                            <span class="fa fa-chevron-down"></span>
+                        </a>
                         <ul class="nav child_menu">
                             <li>
                                 <a href="{{ route('category.index') }}">Job Categories
@@ -113,13 +122,58 @@
                                     Preferred Experience
                                 </a>
                             </li>
+                            
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a>
+                            <i class="fa fa-sliders"></i> 
+                            About 
+                            <span class="fa fa-chevron-down"></span>
+                        </a>
+                        <ul class="nav child_menu">
                             <li>
                                 <a href="{{ route('admin.index') }}">
                                     About
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('admin.termCondition') }}">
+                                    Term and Condition
+                                </a>
+                            </li>
                         </ul>
+                    </li> 
+                    
+                    <li>
+                        <a href="{{ route('admin.contact') }}">
+                        <i class="fa fa-users" aria-hidden="true"></i> 
+                        Contact <span class="fa fa-chevron-down"></span></a>
+                        
                     </li>
+
+                    
+
+                    <li>
+                        <a>
+                            <i class="fa fa-sliders"></i> 
+                            News 
+                            <span class="fa fa-chevron-down"></span>
+                        </a>
+                        <ul class="nav child_menu">
+                            <li>
+                                <a href="{{ route('admin.news') }}">
+                                   All News
+                                </a>                                  
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.newsCategory.show') }}">
+                                    News Category
+                                </a>
+                            </li>
+                        </ul>
+                    </li> 
 
                     {{--<li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>--}}
                         {{--<ul class="nav child_menu">--}}

@@ -12,7 +12,7 @@ class Job extends Model
         'salary', 'jobLocation', 'hire', 'deadLine', 'level', 'degree', 'experience', 'language'
     ];
     public function location(){
-        return $this->belongsTo(Location::class);
+        return $this->belongsToMany(Location::class);
     }
 
 
@@ -24,6 +24,18 @@ class Job extends Model
     //Job.php
     public function category(){
         return $this->belongsTo(Category::class);
+    }
+
+    //contract type
+    public function contractType(){
+        return $this->belongsTo(ContractType::class);
+    }
+
+    // check if has location
+
+    public function hasLocation($locationId)
+    {
+        return in_array($locationId, $this->location->pluck('id')->toArray());
     }
 
 

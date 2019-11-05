@@ -28,9 +28,9 @@
                                                         {{ $companies->companyName }}
                                                     </span>
                                                     
-                                                    {{-- <span class="badge">
-                                                        {{ $companies->job->count() }}
-                                                    </span> --}}
+                                                    <span class="badge">
+                                                        {{ $companies->job_count }}
+                                                    </span>
                                                     
                                                 </li>
                                             </a>

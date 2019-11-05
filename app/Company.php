@@ -35,8 +35,19 @@ class Company extends Model
         return $this->belongsTo(CompanyType::class);
     }
 
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
+
     public function industryType(){
         return $this->belongsTo(IndustryType::class);
+    }
+
+
+
+    public function company(){
+        return $this->hasMany(Company::class);
     }
 
     protected $fillable  = [

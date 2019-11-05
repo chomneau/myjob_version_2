@@ -11,9 +11,27 @@ use App\User;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+//route for testing
+Route::get('/alpha', 'FindJobController@alpha');
+   
+//condiction
+Route::get('/term-condition', 'FindJobController@termCondition')->name('term-condition');
+
+//about us
+Route::get('/about-paysjob', 'FindJobController@about')->name('about-paysjob');
+
+//contact
+Route::get('/contact-paysjob', function () {
+    return view('frontend.about.contact');
+});
+
+
+
+//store contact
+Route::post('/contact/store', 'ContactController@storeContact')->name('contact.store');
+
+
+
  Route::get('/about', 'AboutController@index')->name('about');
 // Route::post('/test', 'FindJobController@storedata')->name('storedata');
 
@@ -22,6 +40,13 @@ Route::get('/verifyEmailFirst', 'Auth\RegisterController@verifyEmailFirst')->nam
 Route::get('/verify/{email}/{verifyToken}', 'Auth\RegisterController@sendEmailDone')->name('sendEmailDone');
 
 
+//news section
+//single news
+Route::get('/news/single/{id}', 'findJobController@singleNews')->name('news.single');
+//list news page
+Route::get('/news/list', 'findJobController@newsList')->name('news.list');
+//news by category
+Route::get('/news/category/{id}', 'findJobController@newsCategory')->name('news.category');
 
 
 Route::get('/', 'FindJobController@index');
@@ -52,8 +77,6 @@ Route::get('/employer/makeJobActive/{job_id}', 'EmployerJobController@makeJobAct
 Route::get('/employer/makeJobExpired/{job_id}', 'EmployerJobController@makeJobExpired')->name('employer.makeJobExpired');
 
 
-
-
 Route::get('/employer/viewAllJobs', 'EmployerController@employeeAllJobs')->name('employer.viewAllJobs');
 Route::get('/employer/edit/{id}', 'EmployerController@edit')->name('employer.edit');
 Route::post('/employer/update/{id}', 'EmployerController@update')->name('employer.update');
@@ -78,6 +101,11 @@ Route::get('/contact', 'PagesController@getContact');
 
 Route::get('/postjob', 'PagesController@getPostjob');
 
+//list all job
+Route::get('/home/joblist', 'FindJobController@listAlljob')->name('home.joblist');
+
+//list all job with grid view
+Route::get('/home/jobGrid', 'FindJobController@gridJob')->name('home.jobGrid');
 
 //findjob
 Route::get('/findjob', 'FindJobController@index')->name('findjob');
@@ -91,7 +119,17 @@ Route::get('/jobByLocation/{id}', 'FindJobController@jobByLocation')->name('jobB
 Route::get('/allLocation', 'FindJobController@allLocation')->name('allLocation');
 
 Route::get('/jobByIndustry/{id}', 'FindJobController@jobByIndustry')->name('jobByIndustry');
+Route::get('/allcompany-NGO', 'FindJobController@allCompany')->name('allCompanyNGO');
+//list all industry which group all company by industry
+Route::get('/listIndustry/{id}', 'FindJobController@listIndustry')->name('list-industry');
+
+//all industry
 Route::get('/allIndustry', 'FindJobController@allIndustry')->name('allIndustry');
+
+
+
+//company profile in frontend 
+Route::get('/company-profile/{id}', 'FindJobController@companyProfile')->name('companyProfile');
 
 //Route::get('/home', 'HomeController@index');
 //Route::get('/home/profile', 'HomeController@profile')->name('home.profile');
@@ -138,12 +176,79 @@ Route::get('/education/delete/{id}', 'UserEducationController@destroy')->name('e
 
 Route::prefix('admin')->group(function (){
 
+    //news section     **********xxxxx***************
+    Route::get('/news', 'NewsController@showNews')->name('admin.news');
+
+    //view single news
+    Route::get('/news/single/{id}', 'NewsController@singleNews')->name('admin.news.single');
+
+    //create a new from
+    Route::get('/news/createForm', 'NewsController@createNewsForm')->name('admin.createNews.form');
+
+    //post a news
+    Route::post('/news/create', 'NewsController@createNews')->name('admin.createNews');
+
+    //Edit the news from
+    Route::get('/news/edit/{id}', 'NewsController@editNews')->name('admin.editNews');
+    //update a new 
+    Route::post('/news/update/{id}', 'NewsController@updateNews')->name('admin.updateNews');
+
+    //delete news
+    Route::get('/news/delete/{id}', 'NewsController@deleteNews')->name('admin.deleteNews');
+
+    //Start New Category ******************xxxxxxxxxxxxxxxxxx***************
+
+    
+
+    //view news Category
+    Route::get('/news/category/show', 'NewsCategoryController@index')->name('admin.newsCategory.show');
+    //Create news category
+    Route::post('/news/category/store', 'NewsCategoryController@store')->name('admin.newsCategory.store');
+    //edit news category form
+    Route::get('/news/category/edit/{id}', 'NewsCategoryController@edit')->name('admin.newsCategory.edit');
+    //update news category
+    Route::post('/news/category/update/{id}', 'NewsCategoryController@update')->name('admin.newsCategory.update');
+    //Delete news category
+    Route::get('/news/category/delete/{id}', 'NewsCategoryController@destroy')->name('admin.newsCategory.destroy');
+
+    
+
+    
+
+    //End News Category ******************xxxxxxxxxxxxxxxxxx****************
+
+
+    //end news section ***********xxxx***************
+
+   //contact
+    Route::get('/contact', 'AboutController@contact')->name('admin.contact');
+    //contact detail
+    Route::get('/contact/detail/{id}', 'AboutController@contactDetail')->name('admin.contact.detail');
+    
+    //detete contact
+    Route::get('/contact/delete/{id}', 'AboutController@contactDelete')->name('admin.contact.delete');
+    
     //about page setting
     Route::get('/about', 'AboutController@index')->name('admin.index');
     //about store
+    Route::post('/about/store', 'AboutController@store')->name('about.store');
+    //update about
     Route::post('/about/update/{id}', 'AboutController@update')->name('about.update');
     //edit about
     Route::get('/about/edit/{id}', 'AboutController@edit')->name('about.edit');
+    //delete
+    Route::get('/about/delete/{id}', 'AboutController@delete')->name('about.delete');
+
+    //term and condition section
+    Route::get('/term-condition', 'AboutController@termCondition')->name('admin.termCondition');
+
+    Route::post('/term-condition/store', 'AboutController@storeTermCondition')->name('admin.termCondition.store');
+
+    Route::get('/term-Condition/edit/{id}', 'AboutController@termConditionEdit')->name('admin.termCondition.edit');
+
+    Route::post('/term-Condition/update/{id}', 'AboutController@termConditionUpdate')->name('admin.termCondition.update');
+
+    Route::get('/term-Condition/delete/{id}', 'AboutController@termConditionDelete')->name('admin.termCondition.delete');
 
     //job seeker
     Route::get('/alljobseeker', 'AdminController@showAlljobseeker')->name('admin.jobseeker');

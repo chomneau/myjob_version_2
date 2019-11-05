@@ -230,6 +230,10 @@ class CompanyController extends Controller
         $company->phone = $request->phone;
         $company->location_id = $request->location;
         $company->website = $request->website;
+        $company->facebook_url = $request->facebook_url;
+        $company->twitter_url = $request->twitter_url;
+        $company->linkedin_url = $request->linkedin_url;
+        $company->location_map = $request->location_map;
         $company->address = $request->address;
         $company->about = $request->about;
         $company->save();

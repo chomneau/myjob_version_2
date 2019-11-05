@@ -1,4 +1,7 @@
 @extends('admin.admin-layout.main')
+@section('stylesheets')
+    {!! Html::style('css/select2.min.css') !!}
+@endsection
 @section('content')
     
 <div class="right_col" role="main">
@@ -41,4 +44,9 @@
     </div>
 </div>
 
+@endsection
+
+
+@section('scripts')
+    {!! Html::script('js/select2.min.js') !!}
 @endsection

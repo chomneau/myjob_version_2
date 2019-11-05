@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 
@@ -83,6 +83,8 @@
                     Don't have account?
                 </div>
                 {{--<div class="space"></div>--}}
+
+{{--                
                 <div class="panel-body">
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
@@ -101,6 +103,118 @@
     </div>
 </div>
 
+
+
+@endsection --}}
+
+@extends('frontend.layout.main-template-non-home')
+@section('content')
+
+<section>
+  <div class="block no-padding " style="background-color:#D4FCFA">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="inner2">
+            <div class="inner-title2">
+              <h3>Employer Login</h3>
+              
+            </div>
+            <div class="page-breacrumbs">
+              <ul class="breadcrumbs">
+                <li><a href="/" title="">Home</a></li>
+              <li><a href="{{ route('about-paysjob') }}" title="">Employer Login</a></li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="row">
+    <div class="col-12 col-md-6">
+        <img src="{{ asset('../images/news_background.svg') }}" alt="" width="80%" style="margin-left:20%; margin-top:5%; margin-bottom:5%">
+    </div>
+    <div class="col-12 col-md-6">
+            <section>
+                    <div class="block remove-bottom">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="account-popup-area signin-popup-box static">
+                              <div class="account-popup">
+                                <h3>Welcome Back!</h3>
+                                <form class="form-horizontal" method="POST" action="{{ route('employer.login.submit') }}">
+                                    @csrf
+
+                                    @if ($errors->has('email'))
+                                        <div class="text-danger text-left" style="margin-top:-10px">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </div>
+                                    @endif
+
+                                    @if ($message = Session::get('message'))
+                                    <div class="alert alert-danger">
+                                        
+                                            <strong>{{ $message }}</strong>
+                                    </div>
+                                    @endif
+
+
+                                  <div class="cfield form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                  <input type="email" name="email" value="{{ old('email') }}"  required autofocus placeholder="Email"  />
+                                    <i class="la la-user"></i>                                   
+                                  </div>
+
+                                    
+                                    @if ($errors->has('password'))
+                                    <div class="text-danger text-left">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </div>
+                                @endif
+                                  <div class="cfield">
+                                    <input type="password" name="password" placeholder="********" required />
+                                    <i class="la la-key"></i>
+                                  </div>
+                                  
+
+
+                                  
+                                  <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        Forgot Your Password?
+                                  </a>
+                                  <button type="submit">Login</button>
+                                </form>
+                                <div class="extra-login">
+                                  <span>Create Account</span>
+                                    <ul style="margin-top:20px">
+                                        <li>
+                                            <a href="{{ route('employer.register') }}" title="" class="text-primary">
+                                                    <i class="fa fa-address-arrow-o" aria-hidden="true"></i>
+                                                    <u>Create an Account  </u> 
+                                            </a>
+                                        </li>
+                                    </ul>
+                                      
+                                        
+                                  
+                                    
+                                    
+                                  
+                                  
+                                </div>
+                              </div>
+                            </div><!-- LOGIN POPUP -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+    </div>
+</div>
 
 
 @endsection

@@ -13,6 +13,8 @@
     <title>Admin | Job </title>
     @include('admin.style.cs-admin')
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
+
 
 </head>
 
@@ -32,6 +34,7 @@
 <!-- jQuery -->
 @include('admin.style.js-admin')
 <script src="{{ asset('js/toastr.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
 
 
 <script>
@@ -42,6 +45,19 @@
      @if(Session::has('error'))
         toastr.error("{{Session::get('error')}}")
     @endif
+
+
+    $(document).ready(function(){
+        
+        $('.select2-multi').select2({
+            placeholder: "Select job locations",
+        });
+        // $('.select2-multi').select2();
+        
+        
+    });
+
+
 
 
 
