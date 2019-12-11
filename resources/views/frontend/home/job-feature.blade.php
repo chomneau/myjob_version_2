@@ -64,7 +64,7 @@
 					</div>
 					<div class="col-lg-12">
 						<div class="browse-all-cat">
-							<a href="#" title="">Load more listings</a>
+							<a href="{{ route('home.joblist')}}" title="">Load more listings</a>
 						</div>
 					</div>
 				</div>

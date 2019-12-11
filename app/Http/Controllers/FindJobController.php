@@ -206,12 +206,24 @@ class FindJobController extends Controller
 
 
 //Search job
-    public function search(){
-        $job = Job::where('jobTitle','like', '%'. request('query') .  '%')->where('status',1)->paginate(10);
+    public function search(Request $request){
 
-        return view('search.result')->with('job', $job)
-            ->with('jobTitle', 'Search results :' .request('query'));
-          
+        if($request->has('select_type')){
+            if($request->select_type == 'all_companies'){
+                $company = Company::where('companyName','like', '%'. request('query') .  '%')->paginate(10);
+               // return $company->companyName;
+                return view('frontend.search_company_result')->with('companies', $company)
+                ->with('companyName', ' : ' .request('query'));
+            }else{
+                $job = Job::where('jobTitle','like', '%'. request('query') .  '%')->where('status',1)->paginate(10);
+
+                return view('frontend.search_job_result')->with('job', $job)
+                ->with('jobTitle', 'Search results :' .request('query'));
+            }
+            
+        }
+        
+         
     }
 
 

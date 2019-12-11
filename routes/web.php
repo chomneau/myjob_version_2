@@ -1,5 +1,6 @@
 <?php
 use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,8 +12,7 @@ use App\User;
 |
 */
 
-//route for testing
-Route::get('/alpha', 'FindJobController@alpha');
+
    
 //condiction
 Route::get('/term-condition', 'FindJobController@termCondition')->name('term-condition');
@@ -25,7 +25,7 @@ Route::get('/contact-paysjob', function () {
     return view('frontend.about.contact');
 });
 
-
+//Auth::routes(['verify' => true]);
 
 //store contact
 Route::post('/contact/store', 'ContactController@storeContact')->name('contact.store');

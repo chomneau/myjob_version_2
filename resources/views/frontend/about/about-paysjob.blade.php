@@ -47,6 +47,6 @@
   </div>
 </section>
 
-@include('frontend.home.career-tips-2')
+@include('frontend.home.career-tips')
 
 @endsection
