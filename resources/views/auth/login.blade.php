@@ -91,7 +91,7 @@
             <div class="page-breacrumbs">
               <ul class="breadcrumbs">
                 <li><a href="/" title="">Home</a></li>
-              <li><a href="{{ route('about-paysjob') }}" title="">Job Seeker Login</a></li>
+              <li><a href="{{ route('about.paysjob') }}" title="">Job Seeker Login</a></li>
                 
               </ul>
             </div>
