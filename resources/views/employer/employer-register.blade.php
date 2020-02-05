@@ -199,7 +199,7 @@
                                                     <i class="la la-user"></i>
                                                 </div>
                                                 <div class="cfield">
-                                                    <input type="password" placeholder="********" />
+                                                    <input type="password" placeholder="Password" />
                                                     <i class="la la-key"></i>
                                                 </div>
                                                 <div class="cfield">

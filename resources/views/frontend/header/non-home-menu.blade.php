@@ -54,9 +54,9 @@
           <li>
             <a href="#" title="">About <i class="fa fa-angle-down" aria-hidden="true"></i></a>
             <ul>
-              <li><a href="{{ route('about-paysjob') }}" title="">About Us</a></li>
-              <li><a href="/contact-paysjob" title="">Contact</a></li>
-              <li><a href="/term-condition" title="">Terms & Condition</a></li>
+              <li><a href="{{ route('about.paysjob') }}" title="">About Us</a></li>
+              <li><a href="{{ route('contact') }}" title="">Contact</a></li>
+              <li><a href="{{ route('condition') }}" title="">Terms & Condition</a></li>
             </ul>
           </li>
         </ul>

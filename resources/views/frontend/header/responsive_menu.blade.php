@@ -30,7 +30,7 @@
 			<div class="responsivemenu">
 				<ul>
 						<li class="menu-item-has-children">
-							<a href="#" title="">Home</a>
+							<a href="/" title="">Home</a>
 							
 						</li>
 						<li class="menu-item-has-children">
@@ -72,13 +72,12 @@
 						</li>
 
 						<li class="menu-item-has-children">
-								<a href="{{ route('news.list')}}" title="">About <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-								<ul>
-									<li><a href="/about-paysjob">About</a></li>
-									<li><a href="/contact-paysjob">Contact</a></li>
-									<li><a href="/term-condition">Terms & Condition</a></li>
-									
-								</ul>
+							<a href="{{ route('news.list')}}" title="">About <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+							<ul>
+								<li><a href="{{ route('about.paysjob') }}" title="">About Us</a></li>
+								<li><a href="{{ route('contact') }}" title="">Contact</a></li>
+								<li><a href="{{ route('condition') }}" title="">Terms & Condition</a></li>
+							</ul>
 							
 						</li>
 						

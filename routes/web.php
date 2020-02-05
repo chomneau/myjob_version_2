@@ -15,15 +15,14 @@ use App\User;
 
    
 //condiction
-Route::get('/term-condition', 'FindJobController@termCondition')->name('term-condition');
+Route::get('/condition', 'FindJobController@termCondition')->name('condition');
 
 //about us
-Route::get('/about-paysjob', 'FindJobController@about')->name('about-paysjob');
+Route::get('/aboutPaysjob', 'FindJobController@about')->name('about.paysjob');
 
 //contact
-Route::get('/contact-paysjob', function () {
-    return view('frontend.about.contact');
-});
+Route::get('/contact', 'FindJobController@contact')->name('contact');
+
 
 //Auth::routes(['verify' => true]);
 
@@ -32,7 +31,7 @@ Route::post('/contact/store', 'ContactController@storeContact')->name('contact.s
 
 
 
- Route::get('/about', 'AboutController@index')->name('about');
+// Route::get('/about', 'AboutController@index')->name('about');
 // Route::post('/test', 'FindJobController@storedata')->name('storedata');
 
 
@@ -49,7 +48,7 @@ Route::get('/news/list', 'findJobController@newsList')->name('news.list');
 Route::get('/news/category/{id}', 'findJobController@newsCategory')->name('news.category');
 
 
-Route::get('/', 'FindJobController@index');
+Route::get('/welcome', 'FindJobController@index')->name('homepage');
 
 //count job viwer by user
 Route::get('/countViewer', 'FindJobController@countViewer')->name('countViewer');
@@ -92,12 +91,12 @@ Route::post('employer/createjob/update/{id}/{company_id}', 'EmployerJobControlle
 
 
 
-Route::get('/form', 'PagesController@form');
-Route::post('/form', 'PagesController@store');
+//Route::get('/form', 'PagesController@form');
+//Route::post('/form', 'PagesController@store');
 
 Auth::routes();
-Route::get('/about', 'PagesController@getAbout');
-Route::get('/contact', 'PagesController@getContact');
+// Route::get('/about', 'PagesController@getAbout');
+// Route::get('/contact', 'PagesController@getContact');
 
 Route::get('/postjob', 'PagesController@getPostjob');
 

@@ -141,6 +141,11 @@ class FindJobController extends Controller
         ]);
     }
 
+    public function contact()
+    {
+        return view('frontend.about.contact');
+    }
+
     //about paysjob page
     public function about()
     {
