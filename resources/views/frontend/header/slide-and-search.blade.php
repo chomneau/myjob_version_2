@@ -8,7 +8,7 @@
 							height: 400px">
 								<!-- <li class="slideHome"><img src="images/slide/bg-slide-1" alt="" /></li> -->
 								<!-- <li class="slideHome"><img src="images/slide/bg-slide-2" alt="" /></li> -->
-								<li class="slideHome"><img src="{{asset('../images/news_background_search.svg')}}" alt="" /></li>
+								<li class="slideHome"><img src="{{asset('images/news_background_search.svg')}}" alt="" /></li>
 							</ul>
 							<div class="job-search-sec">
 								<div class="job-search" style="margin-top:50px">

@@ -8,7 +8,7 @@
           <div class="col-lg-12">
             <div class="inner2">
               <div class="inner-title2" style="padding:30px ">
-                  <div data-velocity="-.1" style="background: url({{asset('../images/top-nav-bg.svg')}}) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+                  <div data-velocity="-.1" style="background: url({{asset('images/top-nav-bg.svg')}}) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
                 <h3>News and Resources</h3>
               </div>
               

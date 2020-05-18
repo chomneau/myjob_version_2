@@ -67,8 +67,8 @@
                 <div class="footer-list-link">
                     <ul class="item-list">
                         <li style="list-style: none" ><a href="https://www.facebook.com/PaysJobKH/" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
-                        <li style="list-style: none" ><a href="#">
-                                <i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+{{--                        <li style="list-style: none" ><a href="#">--}}
+{{--                                <i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>--}}
                         <li style="list-style: none" ><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i> Linkedin</a></li>
                         <li style="list-style: none"><a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i> youtube</a></li>
                     </ul>

@@ -6,17 +6,17 @@
 						<div class="widget">
 							<div class="about_widget">
 								<div class="logo">
-									<a href="#" title=""><img src="template/images/logo/paysjob_white.png" alt="" /></a>
+									<a href="/" title=""><img src="template/images/logo/paysjob_white.png" alt="" /></a>
 								</div>
 								<span>Collin Street West, Victor 8007, Cambodia.</span>
 								<span>(+855) 70 900 982</span>
-								<span>job@paysjob.com</span>
+								<span>paysjob@gmail.com</span>
 								<div class="social">
-									<a href="#" title=""><i class="fa fa-facebook"></i></a>
-									<a href="#" title=""><i class="fa fa-twitter"></i></a>
+									<a href="https://web.facebook.com/PaysJobKH/" target="_blank" title=""><i class="fa fa-facebook"></i></a>
+{{--									<a href="#" title=""><i class="fa fa-twitter"></i></a>--}}
 									<a href="#" title=""><i class="fa fa-linkedin"></i></a>
-									<a href="#" title=""><i class="fa fa-pinterest"></i></a>
-									<a href="#" title=""><i class="fa fa-behance"></i></a>
+{{--									<a href="#" title=""><i class="fa fa-pinterest"></i></a>--}}
+{{--									<a href="#" title=""><i class="fa fa-behance"></i></a>--}}
 								</div>
 							</div><!-- About Widget -->
 						</div>
@@ -27,20 +27,20 @@
 							<div class="link_widgets">
 								<div class="row">
 									<div class="col-lg-6">
-										<a href="#" title="">Privacy & Seurty </a>
-										<a href="#" title="">Terms of Serice</a>
+										<a href="#" title="">Privacy & Security </a>
+										<a href="#" title="">Terms of Service</a>
 										<a href="#" title="">Communications </a>
-										<a href="#" title="">Referral Terms </a>
-										<a href="#" title="">Lending Licnses </a>
-										<a href="#" title="">Disclaimers </a>	
+{{--										<a href="#" title="">Referral Terms </a>--}}
+{{--										<a href="#" title="">Lending Licnses </a>--}}
+{{--										<a href="#" title="">Disclaimers </a>	--}}
 									</div>
-									<div class="col-lg-6">
-										<a href="#" title="">Support </a>
-										<a href="#" title="">How It Works </a>
-										<a href="#" title="">For Employers </a>
-										<a href="#" title="">Underwriting </a>
-										<a href="#" title="">Contact Us</a>
-									</div>
+{{--									<div class="col-lg-6">--}}
+{{--										<a href="#" title="">Support </a>--}}
+{{--										<a href="#" title="">How It Works </a>--}}
+{{--										<a href="#" title="">For Employers </a>--}}
+{{--										<a href="#" title="">Underwriting </a>--}}
+{{--										<a href="#" title="">Contact Us</a>--}}
+{{--									</div>--}}
 								</div>
 							</div>
 						</div>

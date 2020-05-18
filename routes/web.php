@@ -48,7 +48,7 @@ Route::get('/news/list', 'findJobController@newsList')->name('news.list');
 Route::get('/news/category/{id}', 'findJobController@newsCategory')->name('news.category');
 
 
-Route::get('/welcome', 'FindJobController@index')->name('homepage');
+Route::get('/', 'FindJobController@index')->name('homepage');
 
 //count job viwer by user
 Route::get('/countViewer', 'FindJobController@countViewer')->name('countViewer');

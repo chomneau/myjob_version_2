@@ -12,9 +12,9 @@
             </div>
             <div class="page-breacrumbs">
               <ul class="breadcrumbs">
-                <li><a href="/frontend" title="">Home</a></li>
+                <li><a href="/" title="">Home</a></li>
                 
-                <li><a href="/contact-paysjob" title="">Contact</a></li>
+                <li><a href="/contact" title="">Contact</a></li>
               </ul>
             </div>
           </div>

@@ -111,7 +111,7 @@
 
         <div class="row">
             <div class="col-12 col-md-6">
-                <img src="{{ asset('../images/seeker-register.svg') }}" alt="" width="80%" style="margin-left:20%; margin-top:15%; margin-bottom:5%">
+                <img src="{{ asset('images/seeker-register.svg') }}" alt="" width="80%" style="margin-left:20%; margin-top:15%; margin-bottom:5%">
             </div>
             <div class="col-12 col-md-6">
                 <section>

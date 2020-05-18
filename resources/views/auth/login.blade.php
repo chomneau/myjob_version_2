@@ -104,7 +104,7 @@
 
 <div class="row">
     <div class="col-12 col-md-6">
-        <img src="{{ asset('../images/login-seeker.svg') }}" alt="" width="80%" style="margin-left:20%; margin-top:5%; margin-bottom:5%">
+        <img src="{{ asset('images/login-seeker.svg') }}" alt="" width="80%" style="margin-left:20%; margin-top:5%; margin-bottom:5%">
     </div>
     <div class="col-12 col-md-6">
             <section>
@@ -168,11 +168,7 @@
                                     </ul>
                                       
                                         
-                                  
-                                    
-                                    
-                                  
-                                  
+
                                 </div>
                               </div>
                             </div><!-- LOGIN POPUP -->

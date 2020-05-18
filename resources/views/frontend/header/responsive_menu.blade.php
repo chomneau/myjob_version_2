@@ -41,17 +41,17 @@
 								
 							</ul>
 						</li>
-						<li class="menu-item-has-children">
-							<a href="#" title="">Candidates</a>
-							<ul>
-								<li><a href="candidates_list.html" title="">Candidates List 1</a></li>
-								<li><a href="candidates_list2.html" title="">Candidates List 2</a></li>
-								<li><a href="candidates_list3.html" title="">Candidates List 3</a></li>
-								<li><a href="candidates_single.html" title="">Candidates Single 1</a></li>
-								<li><a href="candidates_single2.html" title="">Candidates Single 2</a></li>
-								
-							</ul>
-						</li>
+{{--						<li class="menu-item-has-children">--}}
+{{--							<a href="#" title="">Candidates</a>--}}
+{{--							<ul>--}}
+{{--								<li><a href="candidates_list.html" title="">Candidates List 1</a></li>--}}
+{{--								<li><a href="candidates_list2.html" title="">Candidates List 2</a></li>--}}
+{{--								<li><a href="candidates_list3.html" title="">Candidates List 3</a></li>--}}
+{{--								<li><a href="candidates_single.html" title="">Candidates Single 1</a></li>--}}
+{{--								<li><a href="candidates_single2.html" title="">Candidates Single 2</a></li>--}}
+{{--								--}}
+{{--							</ul>--}}
+{{--						</li>--}}
 						<li class="menu-item-has-children">
 								<a href="{{ route('news.list')}}" title="">Job <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 								<ul>

@@ -2,7 +2,7 @@
   <div class="menu-sec" style="padding-top:-60px; padding-bottom:-30px">
     <div class="container">
       <div class="logo">
-        <a href="/" title=""><img src="{{ asset('../template/images/logo/paysjob_white.png') }}" alt="" /></a>
+        <a href="/" title=""><img src="{{ asset('template/images/logo/paysjob_white.png') }}" alt="" /></a>
       </div><!-- Logo -->
       <div class="btn-extars" style="margin-top:2px">
         <a href="{{ route('employer.login') }}" title="" class="post-job-btn" style="background-color:rgba(20, 168, 168,0); border:#14A8A8 solid 1px; border-radius:5px;"><i class="la la-plus"></i>Post Jobs</a>

@@ -12,8 +12,8 @@
             </div>
             <div class="page-breacrumbs">
               <ul class="breadcrumbs">
-                <li><a href="#" title="">Home</a></li>
-                <li><a href="/term-condition" title="">Team and Condition</a></li>
+                <li><a href="/" title="">Home</a></li>
+                <li><a href="/condition" title="">Team and Condition</a></li>
                 
               </ul>
             </div>
