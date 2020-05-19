@@ -24,17 +24,17 @@
               <li><a href="{{ route('allIndustry') }}" title="">Industry</a></li>
             </ul>
           </li>
-          <li>
-            <a href="#" title="">Candidates <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-            <ul>
-              <li><a href="candidates_list.html" title="">Candidates List 1</a></li>
-              <li><a href="candidates_list2.html" title="">Candidates List 2</a></li>
-              <li><a href="candidates_list3.html" title="">Candidates List 3</a></li>
-              <li><a href="candidates_single.html" title="">Candidates Single 1</a></li>
-              <li><a href="candidates_single2.html" title="">Candidates Single 2</a></li>
-              
-            </ul>
-          </li>
+{{--          <li>--}}
+{{--            <a href="#" title="">Candidates <i class="fa fa-angle-down" aria-hidden="true"></i></a>--}}
+{{--            <ul>--}}
+{{--              <li><a href="candidates_list.html" title="">Candidates List 1</a></li>--}}
+{{--              <li><a href="candidates_list2.html" title="">Candidates List 2</a></li>--}}
+{{--              <li><a href="candidates_list3.html" title="">Candidates List 3</a></li>--}}
+{{--              <li><a href="candidates_single.html" title="">Candidates Single 1</a></li>--}}
+{{--              <li><a href="candidates_single2.html" title="">Candidates Single 2</a></li>--}}
+
+{{--            </ul>--}}
+{{--          </li>--}}
           <li >
               <a href="{{ route('news.list')}}" title="">News <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 							<ul>
