@@ -53,8 +53,9 @@
 						<li>
 						<a href="{{ route('news.list')}}" title="">News <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 							<ul>
-								<li><a href="{{ route('news.list')}}">News</a></li>
-								
+								<li><a href="#">News</a></li>
+{{--								<li><a href="{{ route('news.list')}}">News</a></li>--}}
+
 							</ul>
 						</li>
 						<li>

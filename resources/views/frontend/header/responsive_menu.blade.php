@@ -7,10 +7,10 @@
 			</div>
 			<div class="menu-resaction">
 				<div class="res-openmenu">
-					<img src="{{ asset('../template/images/icon.png') }} " alt="" /> Menu
+					<img src="{{ asset('template/images/icon.png') }} " alt="" /> Menu
 				</div>
 				<div class="res-closemenu">
-					<img src="{{ asset('../template/images/icon2.png') }}" alt="" /> Close
+					<img src="{{ asset('template/images/icon2.png') }}" alt="" /> Close
 				</div>
 			</div>
 		</div>
@@ -53,7 +53,8 @@
 {{--							</ul>--}}
 {{--						</li>--}}
 						<li class="menu-item-has-children">
-								<a href="{{ route('news.list')}}" title="">Job <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+								<a href="#" title="">Job <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+{{--								<a href="{{ route('news.list')}}" title="">Job <i class="fa fa-angle-down" aria-hidden="true"></i></a>--}}
 								<ul>
 									<li><a href="{{ route('home.joblist')}}">Job List</a></li>
 
