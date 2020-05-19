@@ -13,10 +13,10 @@
 	{{-- @include('frontend.home.popular-category') --}}
 
 	{{-- job by category --}}
-	{{-- @include('frontend.home.job-category') --}}
+{{--	 @include('frontend.home.job-category') --}}
 
 	<!-- create user account section -->
-	@include('frontend.home.create-user-account')
+{{--	@include('frontend.home.create-user-account')--}}
 
 
 
@@ -26,7 +26,7 @@
 
 	<!-- Testimony -->
 
-	@include('frontend.home.candidate-testimony')
+{{--	@include('frontend.home.candidate-testimony')--}}
 
 	
 	<!-- companies logo -->
