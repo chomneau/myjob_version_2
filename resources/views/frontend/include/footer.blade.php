@@ -28,8 +28,8 @@
 								<div class="row">
 									<div class="col-lg-6">
 										<a href="#" title="">Privacy & Security </a>
-										<a href="#" title="">Terms of Service</a>
-										<a href="#" title="">Communications </a>
+										<a href="{{ route('condition') }}" title="">Terms and Condition</a>
+{{--										<a href="#" title="">Communications </a>--}}
 {{--										<a href="#" title="">Referral Terms </a>--}}
 {{--										<a href="#" title="">Lending Licnses </a>--}}
 {{--										<a href="#" title="">Disclaimers </a>	--}}
@@ -51,12 +51,12 @@
 							<div class="link_widgets">
 								<div class="row">
 									<div class="col-lg-12">
-										<a href="#" title="">US Jobs</a>	
-										<a href="#" title="">Canada Jobs</a>	
-										<a href="#" title="">UK Jobs</a>	
-										<a href="#" title="">Emplois en Fnce</a>	
-										<a href="#" title="">Jobs in Deuts</a>	
-										<a href="#" title="">Vacatures China</a>	
+										<a href="{{ route('home.joblist')}}" title="">Job List</a>
+										<a href="{{ route('home.jobGrid') }}" title="">Job Grid</a>
+{{--										<a href="#" title="">UK Jobs</a>	--}}
+{{--										<a href="#" title="">Emplois en Fnce</a>	--}}
+{{--										<a href="#" title="">Jobs in Deuts</a>	--}}
+{{--										<a href="#" title="">Vacatures China</a>	--}}
 									</div>
 								</div>
 							</div>
@@ -65,8 +65,8 @@
 					<div class="col-lg-3 column">
 						<div class="widget">
 							<div class="download_widget">
-								<a href="#" title=""><img src="http://placehold.it/230x65" alt="" /></a>
-								<a href="#" title=""><img src="http://placehold.it/230x65" alt="" /></a>
+{{--								<a href="#" title=""><img src="http://placehold.it/230x65" alt="" /></a>--}}
+{{--								<a href="#" title=""><img src="http://placehold.it/230x65" alt="" /></a>--}}
 							</div>
 						</div>
 					</div>
