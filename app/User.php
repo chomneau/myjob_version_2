@@ -12,6 +12,7 @@ use App\Experience;
 class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
+    use Authenticatable;
 
     /**
      * The attributes that are mass assignable.
