@@ -32,10 +32,10 @@
                           width: 120px;
                           height: 120px;
                           overflow: hidden;
-                          border: solid #2ab5fa 1px; padding: 5px; "> 
+                          border: solid #2ab5fa 0px; padding: 5px; ">
                           <a href="{{ route('companyProfile',['id'=>$company->id]) }}">
                             <img src="{{ asset($company->logo) }}"  alt="" style="
-                            width: 100%; height: auto;" /> 
+                            width: 100%; height: auto; border:0px" />
                           </a>  
                           </div>
                       </div>
