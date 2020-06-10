@@ -41,11 +41,11 @@ Route::get('/verify/{email}/{verifyToken}', 'Auth\RegisterController@sendEmailDo
 
 //news section
 //single news
-Route::get('/news/single/{id}', 'findJobController@singleNews')->name('news.single');
+Route::get('/news/single/{id}', 'FindJobController@singleNews')->name('news.single');
 //list news page
-Route::get('/news/list', 'findJobController@newsList')->name('news.list');
+Route::get('/paysjobNew', 'FindJobController@newsList')->name('news.list');
 //news by category
-Route::get('/news/category/{id}', 'findJobController@newsCategory')->name('news.category');
+Route::get('/news/category/{id}', 'FindJobController@newsCategory')->name('news.category');
 
 
 Route::get('/', 'FindJobController@index')->name('homepage');
