@@ -94,7 +94,7 @@ Route::post('employer/createjob/update/{id}/{company_id}', 'EmployerJobControlle
 //Route::get('/form', 'PagesController@form');
 //Route::post('/form', 'PagesController@store');
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
 // Route::get('/about', 'PagesController@getAbout');
 // Route::get('/contact', 'PagesController@getContact');
 
