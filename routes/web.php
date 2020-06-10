@@ -43,7 +43,7 @@ Route::get('/verify/{email}/{verifyToken}', 'Auth\RegisterController@sendEmailDo
 //single news
 Route::get('/news/single/{id}', 'FindJobController@singleNews')->name('news.single');
 //list news page
-Route::get('/paysjobNew', 'FindJobController@newsList')->name('news.list');
+Route::get('/paysjobNews', 'FindJobController@newsList')->name('news.list');
 //news by category
 Route::get('/news/category/{id}', 'FindJobController@newsCategory')->name('news.category');
 
@@ -255,8 +255,8 @@ Route::prefix('admin')->group(function (){
     
     //job seeker
 
-    Route::get('/login', 'auth\AdminLoginController@showLoginForm')->name('admin.login');
-    Route::post('/login', 'auth\AdminLoginController@login')->name('admin.login.submit');
+    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 
     Route::get('/postjob', 'AdminController@showPostjobForm')->name('admin.postjob');
     Route::post('/postjob', 'AdminController@postjob')->name('admin.postjob.submit');
