@@ -10,8 +10,8 @@
               </div>
               <div class="page-breacrumbs">
                 <ul class="breadcrumbs">
-                  <li><a href="#" title="">Home</a></li>
-                  <li><a href="#" title="">about us</a></li>
+                  <li><a href="/" title="">Home</a></li>
+                  <li><a href="{{ route('about.paysjob') }}" title="">about us</a></li>
                   
                 </ul>
               </div>
