@@ -117,11 +117,11 @@ class CompanyController extends Controller
             'address' => 'required'
         ]);
 
-        $employer = new Employer();
-        $employer->name = $request->companyName;
-        $employer->email = $request->email;
-        $employer->password = bcrypt('Paysjob.com');
-        $employer->save();
+        // $employer = new Employer();
+        // $employer->name = $request->companyName;
+        // $employer->email = $request->email;
+        // $employer->password = bcrypt('Paysjob.com');
+        // $employer->save();
             
 
         //$user = Auth::user();
@@ -238,10 +238,10 @@ class CompanyController extends Controller
         $company->about = $request->about;
         $company->save();
 
-        $employer = Employer::find($company->user_id);
-        $employer->name = $request->companyName;
-        $employer->email = $request->email;
-        $employer->save();
+        // $employer = Employer::find($company->user_id);
+        // $employer->name = $request->companyName;
+        // $employer->email = $request->email;
+        // $employer->save();
 
         if($request->hasFile('logo'))
         {
