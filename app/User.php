@@ -56,4 +56,9 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Uploadcv::class);
     }
 
+    public function accounts()
+    {
+        return $this->hasMany(SocialAccount::class);
+    }
+
 }

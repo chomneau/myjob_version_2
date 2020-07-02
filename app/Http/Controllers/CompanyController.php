@@ -128,7 +128,7 @@ class CompanyController extends Controller
         $company = new Company();
         //upload image for user
 
-        $company->user_id = $employer->id;
+       // $company->user_id = $employer->id;
         $company->companyName = $request->companyName;
         $company->contactPerson = $request->contactPerson;
         $company->employeeSize_id = $request->employeeSize;

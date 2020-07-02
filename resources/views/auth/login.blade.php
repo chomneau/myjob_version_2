@@ -165,6 +165,13 @@
                                                     <u>Create an Account  </u> 
                                             </a>
                                         </li>
+
+                                        <li>
+                                            <a href="{{ url('login/facebook') }}" title="" class="text-primary">
+                                                    <i class="fa fa-address-arrow-o" aria-hidden="true"></i>
+                                                    <u>Login with Facebook  </u> 
+                                            </a>
+                                        </li>
                                     </ul>
                                       
                                         
