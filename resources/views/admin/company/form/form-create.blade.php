@@ -95,7 +95,7 @@
                 </div>
                 <div class="col-md-6 {{ $errors->has('website') ? ' has-error' : '' }}">
                     <label for="exampleInputEmail1">Website (url)</label>
-                    <input type="url" name="website" class="form-control" value="{{ old('website') }}" required autofocus placeholder="company website (url)">
+                    <input type="url" name="website" class="form-control" value="{{ old('website') }}"  autofocus placeholder="company website (url)">
                 </div>
             </div>
 

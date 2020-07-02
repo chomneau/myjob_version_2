@@ -122,7 +122,7 @@
                                     <div class="account-popup-area signup-popup-box static">
                                         <div class="account-popup">
                                             <h3>Sign Up</h3>
-                                            <span>Lorem ipsum dolor sit amet consectetur adipiscing elit odio duis risus at lobortis ullamcorper</span>
+                                            <span></span>
                                             <div class="select-user">
                                                 <span>Candidate</span>
                                                 <span>Employer</span>
