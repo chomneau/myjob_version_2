@@ -102,6 +102,6 @@
     
     
     <div class="banner_widget">
-      <a href="#" title=""><img src="http://placehold.it/263x280" alt="" /></a>
+      <a href="#" title=""><img src="{{ asset('images/paysjob-advertise.svg') }}" alt="" /></a>
    </div>
   </aside>
