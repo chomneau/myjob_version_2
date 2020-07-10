@@ -25,7 +25,6 @@
                 </div>
             </div>
 
-
         </div>
 
         <div class="clearfix"></div>
@@ -96,7 +95,7 @@
                                         <td>
                                             <a href="{{ route('admin.company.profile', ['id'=>$com->id] ) }}" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
                                             <a href="{{ route('company.edit', ['id'=>$com->id]) }}" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                                            <a href="{{ route('company.delete', ['id'=>$com->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                                            <!-- <a href="{{ route('company.delete', ['id'=>$com->id]) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a> -->
                                         </td>
                                     </tr>
                                 @endforeach

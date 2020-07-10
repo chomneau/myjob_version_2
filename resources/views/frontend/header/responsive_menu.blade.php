@@ -29,7 +29,7 @@
 			</form>
 			<div class="responsivemenu">
 				<ul>
-						<li class="menu-item-has-children">
+						<li>
 							<a href="/" title="">Home</a>
 							
 						</li>
@@ -53,7 +53,7 @@
 {{--							</ul>--}}
 {{--						</li>--}}
 						<li class="menu-item-has-children">
-								<a href="#" title="">Job <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+								
 								<a href="{{ route('news.list')}}" title="">Job <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 								<ul>
 									<li><a href="{{ route('home.joblist')}}">Job List</a></li>
