@@ -1,191 +1,117 @@
-{{-- @extends('layouts.app')
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('template/css/login.css')}}">
+    <title>Login | Paysjob.com</title>
+</head>
+<body>
+    <div id="logreg-forms">
+        
+        <form method="POST" action="{{ route('login') }}" class="form-signin">
+        @csrf
+            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
+            <div class="social-login">
+                <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign in with Facebook</span> </button>
+                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
+            </div>
+            <p style="text-align:center"> OR  </p>
+            
+            <input id="inputEmail" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
-<div class="container" style="margin-top: 10em">
+            @if ($errors->has('email'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('email') }}</strong>
+                </span>
+            @endif
+           
+            <input id="inputPassword" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading" style="background-color: #1CE1E8">User Login</div>
-                <div class="space"></div>
-                <div class="panel-body" style="margin-top: 2em" >
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+            @if ($errors->has('password'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('password') }}</strong>
+                </span>
+            @endif
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+            <input class="form-check-input ml-0 " type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+            <label class="form-check-label ml-3" for="remember">
+                {{ __('Remember Me') }}
+            </label>
+            
+            <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
+            
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+            @if (Route::has('password.request'))
+                <a  href="{{ route('password.request') }}">
+                    {{ __('Forgot Your Password?') }}
+                </a>
+            @endif
+            <hr>
+            <!-- <p>Don't have an account!</p>  -->
+            <button class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i> Sign up New Account</button>
+            </form>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btnSubmit">
-                                    <strong><i class="fa fa-lock" aria-hidden="true"></i></strong>
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
+            <form action="/reset/password/" class="form-reset">
+                <input type="email" id="resetEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                <button class="btn btn-primary btn-block" type="submit">Reset Password</button>
+                <a href="#" id="cancel_reset"><i class="fas fa-angle-left"></i> Back</a>
+            </form>
+            
+            <form action="/signup/" class="form-signup">
+                <div class="social-login">
+                    <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign up with Facebook</span> </button>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-@endsection
-
-
- --}}
-
- @extends('frontend.layout.main-template-non-home')
-@section('content')
-
-<section>
-  <div class="block no-padding " style="background-color:#D4FCFA">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="inner2">
-            <div class="inner-title2">
-              <h3>Job Seeker Login</h3>
-              
-            </div>
-            <div class="page-breacrumbs">
-              <ul class="breadcrumbs">
-                <li><a href="/" title="">Home</a></li>
-              <li><a href="{{ route('about.paysjob') }}" title="">Job Seeker Login</a></li>
+                <div class="social-login">
+                    <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign up with Google+</span> </button>
+                </div>
                 
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+                <p style="text-align:center">OR</p>
+
+                <input type="text" id="user-name" class="form-control" placeholder="Full name" required="" autofocus="">
+                <input type="email" id="user-email" class="form-control" placeholder="Email address" required autofocus="">
+                <input type="password" id="user-pass" class="form-control" placeholder="Password" required autofocus="">
+                <input type="password" id="user-repeatpass" class="form-control" placeholder="Repeat Password" required autofocus="">
+
+                <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
+                <a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
+            </form>
+            <br>
+            
     </div>
-  </div>
-</section>
+    <p style="text-align:center">
+        <a href="http://bit.ly/2RjWFMfunction toggleResetPswd(e){
+    e.preventDefault();
+    $('#logreg-forms .form-signin').toggle() // display:block or none
+    $('#logreg-forms .form-reset').toggle() // display:block or none
+}
 
-<div class="row">
-    <div class="col-12 col-md-6">
-        <img src="{{ asset('images/login-seeker.svg') }}" alt="" width="80%" style="margin-left:20%; margin-top:5%; margin-bottom:5%">
-    </div>
-    <div class="col-12 col-md-6">
-            <section>
-                    <div class="block remove-bottom">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-lg-12">
-                            <div class="account-popup-area signin-popup-box static">
-                              <div class="account-popup">
-                                <h3 style="color:cadetblue">Welcome Back!</h3>
-                                <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                                    @csrf
+function toggleSignUp(e){
+    e.preventDefault();
+    $('#logreg-forms .form-signin').toggle(); // display:block or none
+    $('#logreg-forms .form-signup').toggle(); // display:block or none
+}
 
-                                    @if ($errors->has('email'))
-                                        <div class="text-danger text-left" style="margin-top:-10px">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </div>
-                                    @endif
+$(()=>{
+    // Login Register Form
+    $('#logreg-forms #forgot_pswd').click(toggleResetPswd);
+    $('#logreg-forms #cancel_reset').click(toggleResetPswd);
+    $('#logreg-forms #btn-signup').click(toggleSignUp);
+    $('#logreg-forms #cancel_signup').click(toggleSignUp);
+})g" target="_blank" style="color:black"></a>
+    </p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/script.js"></script>
+</body>
+</html>
 
-                                    @if ($message = Session::get('message'))
-                                    <div class="alert alert-danger">
-                                        
-                                            <strong>{{ $message }}</strong>
-                                    </div>
-                                    @endif
-
-
-                                  <div class="cfield form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                  <input type="email" name="email" value="{{ old('email') }}"  required autofocus placeholder="Email"  />
-                                    <i class="la la-user"></i>                                   
-                                  </div>
-
-                                    
-                                    @if ($errors->has('password'))
-                                    <div class="text-danger text-left">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </div>
-                                @endif
-                                  <div class="cfield">
-                                    <input type="password" name="password" placeholder="********" required />
-                                    <i class="la la-key"></i>
-                                  </div>
-                                  
-
-
-                                  
-                                  <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        Forgot Your Password?
-                                  </a>
-                                  <button style="background-color:#FFFFFF; border:2px solid aqua; color:cadetblue" type="submit">Login</button>
-                                </form>
-                                <div class="extra-login">
-                                  <span>Create Account</span>
-                                    <ul style="margin-top:20px">
-                                        <li>
-                                            <a href="{{ route('register') }}" title="" class="text-primary">
-                                                    <i class="fa fa-address-arrow-o" aria-hidden="true"></i>
-                                                    <u>Create an Account  </u> 
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="{{ url('login/facebook') }}" title="" class="text-primary">
-                                                    <i class="fa fa-address-arrow-o" aria-hidden="true"></i>
-                                                    <u>Login with Facebook  </u> 
-                                            </a>
-                                        </li>
-                                    </ul>
-                                      
-                                        
-
-                                </div>
-                              </div>
-                            </div><!-- LOGIN POPUP -->
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-    </div>
-</div>
-
-
-@endsection

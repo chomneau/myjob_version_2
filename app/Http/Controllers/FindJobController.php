@@ -115,7 +115,7 @@ class FindJobController extends Controller
     {
 
         //$job = Job::with('company')->paginate(5);
-        $job = Job::with('company')->orderBy(\DB::raw('RAND(12)'))->where('status',1)->paginate(10);
+        $job = Job::with('company')->orderBy(\DB::raw('RAND(12)'))->where('status',1)->paginate(20);
         $location = Location::withCount('job')->take(7)->get();
         $category = Category::withCount(['job'=>function($query){
             $query->where('status',1);

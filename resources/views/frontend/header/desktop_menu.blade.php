@@ -8,8 +8,8 @@
 				<div class="btn-extars" style="margin-top:2px">
 					<a href="{{ route('employer.login') }}" title="" class="post-job-btn" style="background-color:rgba(20, 168, 168,0); border:#14A8A8 solid 1px; border-radius:5px;"><i class="la la-plus"></i>Post Jobs</a>
 					<ul class="account-btns">
-						<li><a href="{{ route('register') }}" title=""><i class="la la-key"></i> Sign Up</a></li>
-						<li><a href="{{ route('login') }}" title=""><i class="la la-external-link-square"></i> Login</a></li>
+						<li><a href="{{ route('register') }}" title=""><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a></li>
+						<li><a href="{{ route('login') }}" title=""><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
 					</ul>
 				</div><!-- Btn Extras -->
 				<nav>
@@ -51,10 +51,10 @@
 {{--							</ul>--}}
 {{--						</li>--}}
 						<li>
-						<a href="{{ route('news.list')}}" title="">News <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+						<a href="{{ route('news.list')}}" title="">Resources & Tips <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 							<ul>
 								
-								<li><a href="{{ route('news.list')}}">News</a></li>
+								<li><a href="{{ route('news.list')}}">Resources & Tips</a></li>
 
 							</ul>
 						</li>

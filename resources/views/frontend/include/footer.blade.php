@@ -10,7 +10,7 @@
 								</div>
 								<span>Collin Street West, Victor 8007, Cambodia.</span>
 								<span>(+855) 70 900 982</span>
-								<span>paysjob@gmail.com</span>
+								<span>job@paysjob.com</span>
 								<div class="social">
 									<a href="https://web.facebook.com/PaysJobKH/" target="_blank" title=""><i class="fa fa-facebook"></i></a>
 {{--									<a href="#" title=""><i class="fa fa-twitter"></i></a>--}}
@@ -74,7 +74,7 @@
 			</div>
 		</div>
 		<div class="bottom-line">
-			<span style="color:#fff">© 2019 paysjob.com All rights reserved</span>
+			<span style="color:#fff">© 2020 paysjob.com All rights reserved</span>
 			<a href="#scrollup" class="scrollup" title="">
 				<i class="la la-arrow-up"></i></a>
 		</div>

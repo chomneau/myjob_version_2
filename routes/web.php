@@ -29,7 +29,8 @@ Route::get('/aboutPaysjob', 'FindJobController@about')->name('about.paysjob');
 Route::get('/contact', 'FindJobController@contact')->name('contact');
 
 
-//Auth::routes(['verify' => true]);
+
+Auth::routes(['verify' => true]);
 
 //store contact
 Route::post('/contact/store', 'ContactController@storeContact')->name('contact.store');
@@ -99,7 +100,7 @@ Route::post('employer/createjob/update/{id}/{company_id}', 'EmployerJobControlle
 //Route::get('/form', 'PagesController@form');
 //Route::post('/form', 'PagesController@store');
 
-Auth::routes(['verify'=>true]);
+//Auth::routes(['verify'=>true]);
 // Route::get('/about', 'PagesController@getAbout');
 // Route::get('/contact', 'PagesController@getContact');
 
@@ -135,9 +136,9 @@ Route::get('/allIndustry', 'FindJobController@allIndustry')->name('allIndustry')
 //company profile in frontend 
 Route::get('/company-profile/{id}', 'FindJobController@companyProfile')->name('companyProfile');
 
-//Route::get('/home', 'HomeController@index');
-//Route::get('/home/profile', 'HomeController@profile')->name('home.profile');
-//Route::post('/home/profile', 'HomeController@createProfile')->name('home.profile.submit');
+Route::get('/home', 'HomeController@index');
+Route::get('/home/profile', 'HomeController@profile')->name('home.profile');
+Route::post('/home/profile', 'HomeController@createProfile')->name('home.profile.submit');
 
 Route::get('/home', 'HomeController@index')->name('home.profile');
 
@@ -405,3 +406,11 @@ Route::prefix('admin')->group(function (){
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

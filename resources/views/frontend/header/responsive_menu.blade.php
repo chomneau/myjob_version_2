@@ -64,9 +64,9 @@
 							
 						</li>
 						<li class="menu-item-has-children">
-								<a href="{{ route('news.list')}}" title="">News <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+								<a href="{{ route('news.list')}}" title="">Resources & Tips <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 								<ul>
-									<li><a href="{{ route('news.list')}}">News</a></li>
+									<li><a href="{{ route('news.list')}}">Resources & Tips</a></li>
 									
 								</ul>
 							

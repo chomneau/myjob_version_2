@@ -1,47 +1,41 @@
-@extends('layouts.app')
-
+@extends('frontend.layout.main-template-non-home')
 @section('content')
-<div class="container" style="margin-top: 9em; margin-bottom: 6em">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading" style="background-color: #1CE1E8">Reset Password</div>
 
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
-                        {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+<div class="container mb-5">
+    	<div class="row">
+    		<div class="col-md-3">
+    		    <img src="https://scocre.com/assets/img/forgot.png" class="img-fluid" alt="">
             </div>
-        </div>
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
+    		<div class="col-md-9" style="padding-top:100px">
+    		    <h2 class="font-weight-light">Forgot your password?</h2>
+    		    Not to worry. Just enter your email address below and we'll send you an the link to reset password to your email.
+                <form method="POST" action="{{ route('password.email') }}">
+                @csrf
+                    <input type="email" class="form-control form-control-lg {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Your email address" required>
+                   
+                    @if ($errors->has('email'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
+    		        
+    		        <button type="submit" class="btn btn-primary">
+                        {{ __('Send Password Reset Link') }}
+                    </button>
+    		    </form>
+    		</div>
+    	</div>
     </div>
-</div>
-@endsection
+    @endsection

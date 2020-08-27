@@ -77,7 +77,7 @@
                {{-- <li><i class="la la-map-marker"></i><span>Jobify Inc. 555 Madison Avenue, Suite F-2 Manhattan, New York 10282 </span></li> --}}
                <li><i class="la la-phone"></i><span>Call Us :  (+855) 70 900 928</span></li>
                
-               <li><i class="la la-envelope-o"></i><span>Email : paysjob@gmail.com</span></li>
+               <li><i class="la la-envelope-o"></i><span>Email : job@paysjob.com</span></li>
              </ul>
              <a class="fill" href="#" title="">See on Map</a><a href="#" title="">Directions</a>
            </div>
